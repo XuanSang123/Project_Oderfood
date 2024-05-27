@@ -8,9 +8,9 @@ import JapaneseFood from "../nav/JapaneseFood/JapaneseFood";
 import DessertsFood from "../nav/DessertsFood/DessertsFood";
 // import Details from "../components/Details/Details";
 import ListFood from "../components/ListFood/ListFood";
-// import Login from "../Login/Login";
+import Login from "../Login/Login";
 // import Register from "../Resgister/Register";
-// import Dashboard from "../Dashboard/Dashboard";
+import Dashboard from "../Dashboard/Dashboard";
 
 export default function Index() {
   return (
@@ -24,9 +24,9 @@ export default function Index() {
         <Route path="/mon-nhat" element={<JapaneseFood />} />
         <Route path="/trang-mieng" element={<DessertsFood />} />
         {/* <Route path="/details/:id" element={<Details />} /> */}
-        {/* <Route path="/login" element={<Login />} /> */}
+        <Route path="/login" element={<Login />} />
         {/* <Route path="/register" element={<Register />} /> */}
-        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );

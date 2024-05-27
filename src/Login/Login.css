@@ -1,0 +1,55 @@
+#login {
+    background:Gray;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    width: 350px;
+    width: 600px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+  #login input {
+    width: calc(100% - 2em);
+    padding: 0.8em 1em;
+    margin-bottom: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+  }
+  #login button {
+    width: 100%;
+    padding: 0.8em 1em;
+    background: #6a11cb;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  #login button:hover {
+    background: #2575fc;
+  }
+  
+  /* Đặt kiểu dáng cho liên kết đăng ký */
+  #login a {
+    display: inline-block;
+    margin-top: 1em;
+    color: #6a11cb;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+  }
+  
+  #login a:hover {
+    color: #2575fc;
+  }
+  
