@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import foodApi from "../../api/foodApi";
-
+import Header from "../../components/Header/Header";
+import Navigation from "../../components/Navigation/Navigation";
+import Footer from "../../components/Footer/Footer";
 export default function KoreanFood() {
   const [foods, setFoods] = useState([]);
 
@@ -39,6 +41,8 @@ export default function KoreanFood() {
   };
   return (
     <>
+      <Header />
+      <Navigation />
       <h1>Quán Hàn Quốc ngon</h1>
       <div id="list-food">
         {foods.map((food) => (
@@ -53,6 +57,7 @@ export default function KoreanFood() {
           </div>
         ))}
       </div>
+      <Footer />
     </>
   );
 }

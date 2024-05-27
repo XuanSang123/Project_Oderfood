@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import foodApi from "../../api/foodApi";
+import Header from "../../components/Header/Header";
+import Navigation from "../../components/Navigation/Navigation";
+import Footer from "../../components/Footer/Footer";
 
 export default function DessertsFood() {
   const [foods, setFoods] = useState([]);
@@ -38,6 +41,8 @@ export default function DessertsFood() {
   };
   return (
     <>
+      <Header />
+      <Navigation />
       <h1>Quán tráng miệng ngon</h1>
       <div id="list-food">
         {foods.map((food) => (
@@ -52,6 +57,7 @@ export default function DessertsFood() {
           </div>
         ))}
       </div>
+      <Footer />
     </>
   );
 }
