@@ -1,33 +1,59 @@
 import React from 'react';
 import './PendingOrders.css';
 
-const PendingOrders = ({ data }) => {
+const PendingOrders = () => {
   return (
-    <div className='summary'>
-      <h2>Đơn hàng đang chờ xử lý</h2>
-      <h3>Thông tin đơn hàng đang chờ</h3>
-      <p>Tổng số đơn hàng đang chờ: {data.totalPending}</p>
-      <p>Tổng số đơn hàng thành công:0/{data.totalPending}</p>
-      <table className='summary-table'>
+   <>
+    <div id='pending-orders'>
+      <div className='searchOrder'>
+        <input type='text' placeholder='Search order' />
+        <button>Search</button>
+        <button>Sắp xếp</button>
+      </div>
+      <div className='pagination'>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+      </div>
+    </div>
+    <div id='pending-orders-table'>
+      <table>
         <thead>
           <tr>
-            <th>Mã đơn hàng</th>
-            <th>Khách hàng</th>
-            <th>Số tiền</th>
+            <th>STT</th>
+            <th>Tên đơn hàng</th>
+            <th>Tên người đặt</th>
+            <th>Ngày đặt</th>
+            <th>Trạng thái</th>
           </tr>
         </thead>
         <tbody>
-          {data.orders.map((order, index) => (
-            <tr key={index}>
-              <td>{order.id}</td>
-              <td>{order.customer}</td>
-              <td>{order.amount.toLocaleString()} VND</td>
-            </tr>
-          ))}
+          <tr>
+            <td>1</td>
+            <td>Đơn hàng 1</td>
+            <td>Nguyễn Văn A</td>
+            <td>27/05/2024</td>
+            <td><input type="radio" /></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Đơn hàng 2</td>
+            <td>Nguyễn Văn B</td>
+            <td>27/05/2024</td>
+            <td><input type="radio" /></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Đơn hàng 3</td>
+            <td>Nguyễn Văn c</td>
+            <td>27/05/2024</td>
+            <td><input type="radio" /></td>
+          </tr>
         </tbody>
       </table>
     </div>
-  );
+   </>   
+  )
 };
 
 export default PendingOrders;
