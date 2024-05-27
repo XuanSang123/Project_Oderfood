@@ -1,29 +1,22 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import foodApi from "../../api/foodApi";
+import Header from '../../components/Header/Header';
+import Navigation from '../../components/Navigation/Navigation';
+import Footer from '../../components/Footer/Footer';
 
 export default function AsiaFood() {
   const [foods, setFoods] = useState([]);
 
   useEffect(() => {
-    // axios.get('http://localhost:3000/asiafood')
-    //   .then((response) => {
-    //     setFoods(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.error("There was an error fetching the foods!", error);
-    //   });
-    const fetchAsiaFood = async () => {
-      try {
-        const { data } = await foodApi.getAsiaFood();
-        console.log(data);
-        setFoods(data);
-      } catch (error) {
-        console.error("There was an error fetching the foods!", error.message);
-      }
-    };
-    fetchAsiaFood();
-  }, []);
+    axios.get('http://localhost:3000/asiafood')
+      .then((response) => {
+        setFoods(response.data);
+      })
+      .catch((error) => {
+        console.error("There was an error fetching the foods!", error);
+      });
+  }, []); // Add the dependency array to run only once
+
   const handleDetails = (id) => {
     const order = JSON.parse(localStorage.getItem("order")) || [];
     const food = foods.find((food) => food.id === id);
@@ -37,8 +30,11 @@ export default function AsiaFood() {
     alert("Đặt món thành công");
     window.location.href = "/details";
   };
+
   return (
     <>
+      <Header />
+      <Navigation />
       <h1>Quán Châu Á ngon</h1>
       <div id="list-food">
         {foods.map((food) => (
@@ -53,6 +49,7 @@ export default function AsiaFood() {
           </div>
         ))}
       </div>
+      <Footer />
     </>
   );
 }

@@ -3,6 +3,7 @@ import axios from "axios";
 import "./ListFood.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import  Navigation  from '../Navigation/Navigation';
 
 export default function ListFood() {
   const [foods, setFoods] = useState([]);
@@ -36,7 +37,7 @@ export default function ListFood() {
   return (
     <>
       <Header />
-
+      <Navigation />
       <h1>Quán ăn nổi bật</h1>
       <div id="list-food">
         {foods.map((food) => (
