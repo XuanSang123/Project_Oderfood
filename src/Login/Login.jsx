@@ -53,8 +53,8 @@ export default function Login() {
 
     if (!values.password) {
       errors.password = "Yeu cau nhap password!";
-    } else if (values.password.length < 8) {
-      errors.password = "Yeu cau nhap password lon hon 8 ky tu!";
+    } else if (values.password.length < 4) {
+      errors.password = "Yeu cau nhap password lon hon 4 ky tu!";
     }
 
     return errors;
