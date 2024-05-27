@@ -1,0 +1,71 @@
+#register {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    text-align: center;
+    border: 1px solid #dee2e6;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: gray;
+}
+#register h1 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #495057;
+    font-weight: 600;
+}
+#register form {
+    display: flex;
+    flex-direction: column;
+}
+
+#register input[type='text'],
+#register input[type='password'],
+#register input[type='email'] {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #495057;
+    transition: border-color 0.3s;
+}
+
+#register input[type='text']:focus,
+#register input[type='password']:focus,
+#register input[type='email']:focus {
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(128, 189, 255, 0.5);
+}
+#register button {
+    padding: 12px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#register button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+#register button:active {
+    background-color: #00408a;
+}
+@media (max-width: 400px) {
+    #register {
+        width: 90%;
+        padding: 20px;
+    }
+}
+.error {
+    color: red;
+  }

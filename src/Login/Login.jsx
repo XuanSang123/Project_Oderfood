@@ -1,31 +1,140 @@
+// import React from 'react'
+// import {Link} from 'react-router-dom'
+// import './Login.css'
+// export default function Login() {
+//   const handleSubmit = (e) => {
+//     e.preventDefault()
+//     e.target.reset()
+//     //kiểm tra đăng nhập,nếu đăng nhập thành công thì chuyển hướng đến trang dashboard
+//     //nếu đăng nhập admin thì chuyển hướng đến trang admin
+//     //nếu đăng nhập user thì chuyển hướng đến trang user
+//     //nếu đăng nhập thất bại thì hiển thị thông báo lỗi
+//     //nếu đăng nhập thành công thì lưu thông tin đăng nhập vào localStorage
+//     //nếu đăng nhập thất bại thì hiển thị thông báo lỗi
+//     //viết code nào
 
-import React from 'react';
-import './Login.css';
+//   }
+//   return (
+//     <div id='login'>
+//         <h1>Login</h1>
+//         <form onSubmit={handleSubmit}>
+//             <input type='text' placeholder='Username' />
+//             <input type='password' placeholder='Password' />
+//             <div>
+//               <button type='submit'>Đăng nhập</button>
+//               <Link to={'/register'}>Bạn đã có tài khoản chưa ?</Link>
+//             </div>
+//         </form>
+//     </div>
+//   )
+// }
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
+import "./Login.css";
+import authApi from "../api/authApi";
 
+// sử dụng thư viện formmik
 export default function Login() {
-const handleSubmit = (e) => {
-  e.preventDefault();
-  const email = e.target.Email.value;
-  const password = e.target.password.value;
-  if (email === 'admin' && password === 'admin') {
-    localStorage.setItem('token', 'admin');
-    window.location.href = '/dashboard';
-  } else {
-    alert('Đăng nhập thất bại');
-    localStorage.removeItem('token');
-    window.location.href = '/';
-  }
-}
+  const navigate = useNavigate();
+  // See more: https://formik.org/docs/guides/validation
+  // formik validate function
+  const validate = (values) => {
+    // Tao object errors
+    const errors = {};
+    // Check email khong rong
+    if (!values.email) {
+      errors.email = "Yeu cau nhap email!";
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email) // check dinh dang email
+    ) {
+      errors.email = "Day khong phai la email, vui long nhap lai";
+    }
 
+    if (!values.password) {
+      errors.password = "Yeu cau nhap password!";
+    } else if (values.password.length < 8) {
+      errors.password = "Yeu cau nhap password lon hon 8 ky tu!";
+    }
+
+    return errors;
+  };
+
+  const formik = useFormik({
+    // Gia tri khoi tao cua form
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    // Ham validate
+    validate,
+    // Ham xu ly submit
+    onSubmit: async (values) => {
+      try {
+        const { data } = await authApi.userLogin(values); // Call API de dang nhap
+        localStorage.setItem("TOKEN", data.accessToken);
+        localStorage.setItem("USER", data.user.email);
+        navigate("/");
+
+        // window.location.href("/login");
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  });
+
+  // const handleLoginSubmit = (event) => {
+  //   event.preventDefault();
+  //   console.log(event);
+  //   const username = event.target.elements.username.value;
+  //   const password = event.target.elements.password.value;
+
+  //   // Kiểm tra logic đăng nhập
+  //   if (username === "admin" && password === "adminPassword") {
+  //     // Đăng nhập thành công với quyền admin
+  //     localStorage.setItem("userType", "admin");
+  //     // Chuyển hướng đến trang admin
+  //     window.location.href = "/dashboard";
+  //   } else if (username === "user" && password === "userPassword") {
+  //     // Đăng nhập thành công với quyền user
+  //     localStorage.setItem("userType", "user");
+  //     // Chuyển hướng đến trang user
+  //     window.location.href = "/user";
+  //   } else {
+  //     // Đăng nhập thất bại
+  //     alert("Tên đăng nhập hoặc mật khẩu không chính xác");
+  //   }
+  // };
 
   return (
-    <div id='login'>
+    <div id="login">
       <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <input type='text' placeholder='Email' name='Email' />
-        <input type='password' placeholder='Password' name='password' />
+      <form onSubmit={formik.handleSubmit}>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="Email"
+          onChange={formik.handleChange}
+          value={formik.values.email}
+        />
+        {formik.errors.email && (
+          <span className="error">{formik.errors.email}</span>
+        )}
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="Password"
+          onChange={formik.handleChange}
+          value={formik.values.password}
+        />
+        {formik.errors.password && (
+          <span className="error">{formik.errors.password}</span>
+        )}
         <div>
-          <button type='submit'>Đăng nhập</button>
+          <button type="submit">Đăng nhập</button>
+          <Link to={"/register"}>Bạn đã có tài khoản chưa ?</Link>
         </div>
       </form>
     </div>
