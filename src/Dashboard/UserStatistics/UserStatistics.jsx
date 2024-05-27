@@ -9,6 +9,7 @@ const UserStatistics = () => {
   return (
    <> 
    <div id='userStatistics'>
+    <h2>Quản lý người dùng</h2>
       <div className='search-sort-pagivation'>
         <div className='search-user'>
           <input type='text' placeholder='Search user' />
