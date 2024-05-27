@@ -40,10 +40,13 @@ export default function Login() {
   // See more: https://formik.org/docs/guides/validation
   // formik validate function
   const validate = (values) => {
-    
     // Tao object errors
     const errors = {};
     // Check email khong rong
+
+    if (values.email == "admin" && values.password == "admin") {
+      navigate("/dashboard");
+    }
 
     if (values.email == "admin" && values.password == "admin") {
       navigate("/dashboard");
