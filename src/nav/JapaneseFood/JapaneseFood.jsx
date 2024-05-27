@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import foodApi from "../../api/foodApi";
+import Header from "../../components/Header/Header";
+import Navigation from "../../components/Navigation/Navigation";
+import Footer from "../../components/Footer/Footer";
 export default function JapaneseFood() {
   const [foods, setFoods] = useState([]);
 
@@ -39,6 +42,9 @@ export default function JapaneseFood() {
   };
   return (
     <>
+      {" "}
+      <Header />
+      <Navigation />
       <h1>Quán Nhật Bản ngon</h1>
       <div id="list-food">
         {foods.map((food) => (
@@ -53,6 +59,7 @@ export default function JapaneseFood() {
           </div>
         ))}
       </div>
+      <Footer />
     </>
   );
 }

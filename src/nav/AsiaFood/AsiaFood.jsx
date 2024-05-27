@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Header from '../../components/Header/Header';
-import Navigation from '../../components/Navigation/Navigation';
-import Footer from '../../components/Footer/Footer';
+import Header from "../../components/Header/Header";
+import Navigation from "../../components/Navigation/Navigation";
+import Footer from "../../components/Footer/Footer";
 
 export default function AsiaFood() {
   const [foods, setFoods] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/asiafood')
+    axios
+      .get("http://localhost:3000/asiafood")
       .then((response) => {
         setFoods(response.data);
       })
