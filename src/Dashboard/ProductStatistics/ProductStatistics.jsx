@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './ProductStatistics.css';
 
 const ProductStatistics = () => {
@@ -11,10 +11,8 @@ const ProductStatistics = () => {
     <div id='productStatistics'>
       <h2>Thống kê sản phẩm</h2>
       <div className='searchProduct'>
-        <div className='searchProductInput'>
-          <input type='text' placeholder='Search product' />
-          <button>Search</button>
-        </div>
+        <input type='text' placeholder='Search product' />
+        <button>Search</button>
         <button>Sắp xếp</button>
         <button onClick={handleToggle}>Thêm sản phẩm</button>
       </div>
@@ -26,9 +24,9 @@ const ProductStatistics = () => {
         <input type='text' placeholder='Địa chỉ' />
         <input type='text' placeholder='Giá' />
         <input type="text" placeholder="Mô tả" />
-      <div className='addProductButton'>
+      <div className='btn'>
           <button>Thêm sản phẩm mới</button>
-          <button onClick={handleToggle}>Hủy</button>
+          <button>Hủy</button>
       </div>
       </div> }
       <div className='pagination'>
