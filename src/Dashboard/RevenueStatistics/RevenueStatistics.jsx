@@ -1,38 +1,58 @@
-import React from 'react';
 import './RevenueStatistics.css';
 
-const RevenueStatistics = ({ data, orderData }) => {
+const RevenueStatistics = () => {
   return (
-    <div>
+   <>
+   <div id='revenue'>
       <h2>Thống kê doanh thu</h2>
-      <div className='summary'>
-        <h3>Thông tin đơn hàng</h3>
-        <table className='summary-table'>
-          <thead>
-            <tr>
-              <th>Chỉ số</th>
-              <th>Giá trị</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Tổng số đơn hàng</td>
-              <td>{orderData.totalOrders}</td>
-            </tr>
-            <tr>
-              <td>Tổng doanh thu</td>
-              <td>{orderData.totalRevenue.toLocaleString()} VND</td>
-            </tr>
-            {orderData.products.map((product, index) => (
-              <tr key={index}>
-                <td>Doanh thu từ {product.name}</td>
-                <td>{product.revenue.toLocaleString()} VND</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+    <div className='pagination'>
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
       </div>
-    </div>
+   </div>
+   <div id='revenueTable'>
+    <table>
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Ngày</th>
+          <th>Doanh thu</th>
+          <th>Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>01/01/2021</td>
+          <td>1000000</td>
+          <td>
+            <button>Sửa</button>
+            <button>Xóa</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>02/01/2021</td>
+          <td>2000000</td>
+          <td>
+            <button>Sửa</button>
+            <button>Xóa</button>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>03/01/2021</td>
+          <td>3000000</td>
+          <td>
+            <button>Sửa</button>
+            <button>Xóa</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+   </div>
+   </>
   );
 };
 

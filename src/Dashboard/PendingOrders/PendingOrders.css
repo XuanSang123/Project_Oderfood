@@ -1,12 +1,4 @@
 
-#pending-orders {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* Styling the search order section */
 .searchOrder {
   display: flex;
   align-items: center;
@@ -14,9 +6,7 @@
 }
 
 .searchOrder input[type="text"] {
-  flex-grow: 1;
   padding: 10px;
-  margin-right: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;

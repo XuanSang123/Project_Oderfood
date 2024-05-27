@@ -1,10 +1,10 @@
-import React from 'react';
 import './PendingOrders.css';
 
 const PendingOrders = () => {
   return (
    <>
     <div id='pending-orders'>
+      <h2>Quản lý đơn hàng</h2>
       <div className='searchOrder'>
         <input type='text' placeholder='Search order' />
         <button>Search</button>
