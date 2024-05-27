@@ -642,6 +642,15 @@
       "firstName": "dadsasdadsasd",
       "lastName": "Sang",
       "id": 15
+    },
+    {
+      "email": "maixuansang1123@gmail.ce",
+      "password": "$2a$10$yiqeCZC2WdtKmI8.2IvOi.kxUGQe1U94cvZheMxvmpna81cYoQeba",
+      "confirmPassword": "123456789",
+      "phoneNumber": "0964417590",
+      "firstName": "dadsasdadsasd",
+      "lastName": "asdasdasd",
+      "id": 16
     }
   ]
 }

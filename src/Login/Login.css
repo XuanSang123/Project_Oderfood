@@ -52,4 +52,8 @@
   #login a:hover {
     color: #2575fc;
   }
+
+  .error {
+    color: red;
+  }
   
