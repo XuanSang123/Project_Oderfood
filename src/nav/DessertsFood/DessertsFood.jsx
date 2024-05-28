@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import foodApi from "../../api/foodApi";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import Header from "../../components/Header/Header";
 import Navigation from "../../components/Navigation/Navigation";
 import Footer from "../../components/Footer/Footer";
@@ -8,24 +8,17 @@ export default function DessertsFood() {
   const [foods, setFoods] = useState([]);
 
   useEffect(() => {
-    // axios.get('http://localhost:3000/dessertsfood')
-    //   .then((response) => {
-    //     setFoods(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.error("There was an error fetching the foods!", error);
-    //   });
-
-    const fetchDessertsFood = async () => {
+    const fetchData = async () => {
       try {
-        const { data } = await foodApi.getDessertsfood();
-        setFoods(data);
+        const response = await axios.get("http://localhost:3000/allfood/?categories=dessertsfood");
+        setFoods(response.data);
       } catch (error) {
-        console.error("There was an error fetching the foods!", error);
+        console.error(error);
       }
     };
-    fetchDessertsFood();
-  }, []);
+
+    fetchData();
+  },[])
   const handleDetails = (id) => {
     const order = JSON.parse(localStorage.getItem("order")) || [];
     const food = foods.find((food) => food.id === id);

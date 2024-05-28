@@ -1,69 +1,240 @@
-import { useState } from 'react';
+import { useEffect, useState } from "react";
+import axios from "axios";
 import './ProductStatistics.css';
 
-const ProductStatistics = () => {
-  const [toggle, setToggle] = useState();
+export default function ProductStatistics() {
+  const [toggle, setToggle] = useState(false);
+  const [products, setProducts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [sortOrder, setSortOrder] = useState('asc');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [formData, setFormData] = useState({
+    image: '',
+    name: '',
+    restaurant: '',
+    address: '',
+    price: '',
+    review: ''
+  });
+  const [editProduct, setEditProduct] = useState(null);
+  const productsPerPage = 5;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/allfood');
+        setProducts(response.data);
+      } catch (error) {
+        console.error('Error fetching data', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const handleSortClick = () => {
+    const sortedProducts = [...products].sort((a, b) => {
+      if (sortOrder === 'asc') {
+        return a.name.localeCompare(b.name);
+      } else {
+        return b.name.localeCompare(a.name);
+      }
+    });
+    setProducts(sortedProducts);
+    setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+  };
+
   const handleToggle = () => {
     setToggle(!toggle);
+    setEditProduct(null);
+    setFormData({
+      image: '',
+      name: '',
+      restaurant: '',
+      address: '',
+      price: '',
+      review: ''
+    });
   };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const handleSave = async () => {
+    try {
+      if (editProduct) {
+        await axios.put(`http://localhost:3000/allfood/${editProduct.id}`, formData);
+        setProducts(products.map(p => (p.id === editProduct.id ? { ...formData, id: editProduct.id } : p)));
+      } else {
+        const response = await axios.post('http://localhost:3000/allfood', formData);
+        const newProduct = response.data;
+        setProducts([...products, newProduct]);
+      }
+      handleToggle();
+    } catch (error) {
+      console.error('Error saving product', error);
+    }
+  };
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const handleEditClick = (product) => {
+    setEditProduct(product);
+    setToggle(true);
+    setFormData(product);
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3000/allfood/${id}`);
+      setProducts(products.filter(product => product.id !== id));
+    } catch (error) {
+      console.error('Error deleting product', error);
+    }
+  };
+
+  const filteredProducts = products.filter(product =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(filteredProducts.length / productsPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
   return (
     <>
-    <div id='productStatistics'>
-      <h2>Thống kê sản phẩm</h2>
-      <div className='searchProduct'>
-        <input type='text' placeholder='Search product' />
-        <button>Search</button>
-        <button>Sắp xếp</button>
-        <button onClick={handleToggle}>Thêm sản phẩm</button>
-      </div>
-      {toggle && <div id='addProduct'>
-        <h3>Thêm sản phẩm mới</h3>
-        <input type='text' placeholder='Ảnh sản phẩm' />
-        <input type='text' placeholder='Tên sản phẩm' />
-        <input type='text' placeholder='Tên nhà hàng' />
-        <input type='text' placeholder='Địa chỉ' />
-        <input type='text' placeholder='Giá' />
-        <input type="text" placeholder="Mô tả" />
-      <div className='btn'>
-          <button>Thêm sản phẩm mới</button>
-          <button>Hủy</button>
-      </div>
-      </div> }
-      <div className='pagination'>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-      </div>
-        <table>
-          <thead>
-          <tr>
-              <th>Ảnh sản phẩm</th>
-              <th>Tên sản phẩm</th>
-              <th>Tên nhà hàng</th>
-              <th>Địa chỉ</th>
-              <th>Giá</th>
-              <th>Mô tả</th>
-              <th>Thao tác</th>
-        </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><img src='https://via.placeholder.com/150' alt='product' /></td>
-              <td>Product 1</td>
-              <td>Restaurant 1</td>
-              <td>Address 1</td>
-              <td>100000</td>
-              <td>Description 1</td>
-              <td>
-                <button>Sửa</button>
-                <button>Xóa</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-    </div>
+      <div id='productStatistics'>
+         <h2>Thống kê sản phẩm</h2>
+         <div className='searchProduct'>
+           <input
+             type='text'
+             placeholder='Search product'
+             value={searchTerm}
+             onChange={(e) => setSearchTerm(e.target.value)}
+           />
+           <button onClick={handleSortClick}>Sắp xếp</button>
+           <button onClick={handleToggle}>{toggle ? 'Đóng' : 'Thêm sản phẩm'}</button>
+         </div>
+         {toggle && (
+           <div id='addProduct'>
+             <h3>{editProduct ? 'Chỉnh sửa sản phẩm' : 'Thêm sản phẩm mới'}</h3>
+             <input
+               type='text'
+               name='image'
+               placeholder='Ảnh sản phẩm'
+               value={formData.image}
+               onChange={handleInputChange}
+             />
+             <input
+               type='text'
+               name='name'
+               placeholder='Tên sản phẩm'
+               value={formData.name}
+               onChange={handleInputChange}
+             />
+             <input
+               type='text'
+               name='restaurant'
+               placeholder='Tên nhà hàng'
+               value={formData.restaurant}
+               onChange={handleInputChange}
+             />
+             <input
+               type='text'
+               name='address'
+               placeholder='Địa chỉ'
+               value={formData.address}
+               onChange={handleInputChange}
+             />
+             <input
+               type='text'
+               name='price'
+               placeholder='Giá'
+               value={formData.price}
+               onChange={handleInputChange}
+             />
+             <input
+               type='text'
+               name='review'
+               placeholder='Mô tả'
+               value={formData.review}
+               onChange={handleInputChange}
+             />
+                <select 
+                  name="categories" 
+                  id="catecategoriesgory" 
+                  value={formData.categories}
+                  onChange={handleInputChange}
+                >
+                  <option value="">Chọn danh mục</option>
+                  <option value="foods">foods</option>
+                  <option value="vietfood">vietfood</option>
+                  <option value="asiafood">asiafood</option>
+                  <option value="europeanfood">europeanfood</option>
+                  <option value="koreanfood">koreanfood</option>
+                  <option value="japanesefood">japanesefood</option>
+                  <option value="dessertsfood">dessertsfood</option>
+                </select>
+             <div className='btn'>
+               <button onClick={handleSave}>{editProduct ? 'Lưu' : 'Thêm sản phẩm mới'}</button>
+               <button onClick={handleToggle}>Hủy</button>
+             </div>
+           </div>
+         )}
+         <div className='pagination'>
+           {pageNumbers.map(number => (
+             <button
+               key={number}
+               onClick={() => handlePageChange(number)}
+               className={number === currentPage ? 'active' : ''}
+             >
+               {number}
+             </button>
+           ))}
+         </div>
+         <table>
+           <thead>
+             <tr>
+               <th>Ảnh sản phẩm</th>
+               <th onClick={handleSortClick}>Tên sản phẩm {sortOrder === 'asc' ? '▲' : '▼'}</th>
+               <th>Tên nhà hàng</th>
+               <th>Địa chỉ</th>
+               <th>Giá</th>
+               <th>Mô tả</th>
+               <th>Danh mục</th>
+               <th>Thao tác</th>
+             </tr>
+           </thead>
+           <tbody>
+             {currentProducts.map((product, index) => (
+               <tr key={index}>
+                 <td><img src={product.image} alt='product' /></td>
+                 <td>{product.name}</td>
+                 <td>{product.restaurant}</td>
+                 <td>{product.address}</td>
+                 <td>{product.price}</td>
+                 <td>{product.review}</td>
+                 <td>{product.categories}</td>
+                 <td>
+                   <button onClick={() => handleEditClick(product)}>Sửa</button>
+                   <button onClick={() => handleDelete(product.id)}>Xóa</button>
+                 </td>
+               </tr>
+             ))}
+           </tbody>
+         </table>
+       </div>
     </>
-  );
-};
-
-export default ProductStatistics;
+  )
+}

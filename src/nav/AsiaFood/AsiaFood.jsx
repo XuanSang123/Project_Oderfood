@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "../../components/Header/Header";
 import Navigation from "../../components/Navigation/Navigation";
@@ -9,14 +9,14 @@ export default function AsiaFood() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/asiafood")
+      .get("http://localhost:3000/allfood?categories=asiafood")
       .then((response) => {
         setFoods(response.data);
       })
       .catch((error) => {
         console.error("There was an error fetching the foods!", error);
       });
-  }, []); // Add the dependency array to run only once
+  }, []); 
 
   const handleDetails = (id) => {
     const order = JSON.parse(localStorage.getItem("order")) || [];
