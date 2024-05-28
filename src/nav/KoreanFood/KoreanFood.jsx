@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import foodApi from "../../api/foodApi";
 import Header from "../../components/Header/Header";
 import Navigation from "../../components/Navigation/Navigation";
 import Footer from "../../components/Footer/Footer";
@@ -8,24 +7,17 @@ export default function KoreanFood() {
   const [foods, setFoods] = useState([]);
 
   useEffect(() => {
-    //   axios.get('http://localhost:3000/koreanfood')
-    //     .then((response) => {
-    //       setFoods(response.data);
-    //     })
-    //     .catch((error) => {
-    //       console.error("There was an error fetching the foods!", error);
-    //     });
-    // }
-    const fetchKoreaFood = async () => {
+    const fetchData = async () => {
       try {
-        const { data } = await foodApi.getKoreafood();
-        setFoods(data);
+        const response = await axios.get("http://localhost:3000/allfood/?categories=koreanfood");
+        setFoods(response.data);
       } catch (error) {
-        console.error("There was an error fetching the foods!", error.message);
+        console.error(error);
       }
     };
-    fetchKoreaFood();
-  }, []);
+
+    fetchData();
+  },[])
   const handleDetails = (id) => {
     const order = JSON.parse(localStorage.getItem("order")) || [];
     const food = foods.find((food) => food.id === id);

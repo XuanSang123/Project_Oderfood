@@ -1,38 +1,10 @@
-// import React from 'react'
-// import {Link} from 'react-router-dom'
-// import './Login.css'
-// export default function Login() {
-//   const handleSubmit = (e) => {
-//     e.preventDefault()
-//     e.target.reset()
-//     //kiểm tra đăng nhập,nếu đăng nhập thành công thì chuyển hướng đến trang dashboard
-//     //nếu đăng nhập admin thì chuyển hướng đến trang admin
-//     //nếu đăng nhập user thì chuyển hướng đến trang user
-//     //nếu đăng nhập thất bại thì hiển thị thông báo lỗi
-//     //nếu đăng nhập thành công thì lưu thông tin đăng nhập vào localStorage
-//     //nếu đăng nhập thất bại thì hiển thị thông báo lỗi
-//     //viết code nào
-
-//   }
-//   return (
-//     <div id='login'>
-//         <h1>Login</h1>
-//         <form onSubmit={handleSubmit}>
-//             <input type='text' placeholder='Username' />
-//             <input type='password' placeholder='Password' />
-//             <div>
-//               <button type='submit'>Đăng nhập</button>
-//               <Link to={'/register'}>Bạn đã có tài khoản chưa ?</Link>
-//             </div>
-//         </form>
-//     </div>
-//   )
-// }
-import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import "./Login.css";
 import authApi from "../api/authApi";
+import Header from '../../src/components/Header/Header'
+import Navigation from '../../src/components/Navigation/Navigation'
+import Footer from '../../src/components/Footer/Footer'
 
 // sử dụng thư viện formmik
 export default function Login() {
@@ -115,6 +87,9 @@ export default function Login() {
   // };
 
   return (
+   <>
+   <Header/>
+   <Navigation/>
     <div id="login">
       <h1>Login</h1>
       <form onSubmit={formik.handleSubmit}>
@@ -146,5 +121,7 @@ export default function Login() {
         </div>
       </form>
     </div>
+  <Footer/>
+   </>
   );
 }

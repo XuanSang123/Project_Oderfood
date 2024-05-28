@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "./ListFood.css";
 import Header from "../Header/Header";
@@ -9,7 +9,7 @@ export default function ListFood() {
   const [foods, setFoods] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:3000/foods")
+      .get("http://localhost:3000/allfood/?categories=foods")
       .then((response) => {
         setFoods(response.data);
       })
