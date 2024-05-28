@@ -28,15 +28,19 @@
 //     </div>
 //   )
 // }
-import React, { useState } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
+import { useDispatch } from "react-redux";
+import { login } from "../redux/slices/authReducer";
 import "./Login.css";
 import authApi from "../api/authApi";
 
 // sử dụng thư viện formmik
 export default function Login() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   // See more: https://formik.org/docs/guides/validation
   // formik validate function
   const validate = (values) => {
@@ -80,10 +84,14 @@ export default function Login() {
     onSubmit: async (values) => {
       try {
         const { data } = await authApi.userLogin(values); // Call API de dang nhap
+        // Set localStorage
         localStorage.setItem("TOKEN", data.accessToken);
         localStorage.setItem("USER", data.user.email);
-        navigate("/");
 
+        // Dispatch de set isLogin === true
+        dispatch(login());
+
+        navigate("/");
         // window.location.href("/login");
       } catch (error) {
         console.log(error);

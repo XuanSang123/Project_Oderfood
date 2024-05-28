@@ -11,6 +11,7 @@ import ListFood from "../components/ListFood/ListFood";
 import Login from "../Login/Login";
 import Register from "../Resgister/Register";
 import Dashboard from "../Dashboard/Dashboard";
+import Cart from "../components/Cart/Cart";
 
 export default function Index() {
   return (
@@ -27,6 +28,7 @@ export default function Index() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </BrowserRouter>
   );

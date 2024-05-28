@@ -6,7 +6,7 @@
       "name": "Phở Bò",
       "restaurant": "Phở Thìn",
       "address": "13 Lò Đúc, Hai Bà Trưng, Hà Nội",
-      "price": "60,000 VND",
+      "price": "60000",
       "review": "Phở Thìn nổi tiếng với nước dùng thơm ngon và thịt bò tái chín mềm."
     },
     {
@@ -15,7 +15,7 @@
       "name": "Bánh Mì",
       "restaurant": "Bánh Mì Huỳnh Hoa",
       "address": "26 Lê Thị Riêng, Quận 1, TP. HCM",
-      "price": "40,000 VND",
+      "price": "40000",
       "review": "Bánh mì đầy ắp nhân, pate và thịt nguội ngon tuyệt."
     },
     {
@@ -24,7 +24,7 @@
       "name": "Cơm Tấm",
       "restaurant": "Cơm Tấm Ba Ghiền",
       "address": "84 Đặng Văn Ngữ, Phú Nhuận, TP. HCM",
-      "price": "50,000 VND",
+      "price": "50000",
       "review": "Cơm tấm với sườn nướng thơm ngon, nước mắm chua ngọt hấp dẫn."
     },
     {
@@ -33,7 +33,7 @@
       "name": "Bún Chả",
       "restaurant": "Bún Chả Hương Liên",
       "address": "24 Lê Văn Hưu, Hai Bà Trưng, Hà Nội",
-      "price": "45,000 VND",
+      "price": "45000",
       "review": "Chả nướng thơm phức, bún tươi và nước chấm vừa miệng."
     },
     {
@@ -42,7 +42,7 @@
       "name": "Cao Lầu",
       "restaurant": "Cao Lầu Bà Bé",
       "address": "19 Trần Phú, Hội An, Quảng Nam",
-      "price": "35,000 VND",
+      "price": "35000",
       "review": "Món đặc sản Hội An với sợi mì dai ngon và thịt heo đậm đà."
     },
     {
@@ -51,7 +51,7 @@
       "name": "Bánh Xèo",
       "restaurant": "Bánh Xèo 46A",
       "address": "46A Đinh Công Tráng, Quận 1, TP. HCM",
-      "price": "70,000 VND",
+      "price": "70000",
       "review": "Bánh xèo giòn rụm, nhân tôm thịt đầy đặn, nước chấm ngon."
     },
     {
@@ -60,7 +60,7 @@
       "name": "Bún Bò Huế",
       "restaurant": "Bún Bò Huế Bà Dưỡng",
       "address": "Số 19 Lê Duẩn, Hải Châu, Đà Nẵng",
-      "price": "50,000 VND",
+      "price": "50000",
       "review": "Bún bò Huế với nước dùng đậm đà, thịt bò mềm ngon."
     },
     {
@@ -69,7 +69,7 @@
       "name": "Mì Quảng",
       "restaurant": "Mì Quảng 1A",
       "address": "1A Hải Phòng, Thanh Khê, Đà Nẵng",
-      "price": "45,000 VND",
+      "price": "45000",
       "review": "Mì Quảng với sợi mì dai ngon, tôm thịt tươi và nước dùng đậm đà."
     },
     {
@@ -78,7 +78,7 @@
       "name": "Bánh Canh Cua",
       "restaurant": "Bánh Canh Cua 14",
       "address": "14 Trần Bình Trọng, Bình Thạnh, TP. HCM",
-      "price": "55,000 VND",
+      "price": "55000",
       "review": "Bánh canh cua với nước dùng sánh mịn, thịt cua tươi ngon."
     },
     {
@@ -87,7 +87,7 @@
       "name": "Chả Cá Lã Vọng",
       "restaurant": "Chả Cá Lã Vọng",
       "address": "14 Chả Cá, Hoàn Kiếm, Hà Nội",
-      "price": "150,000 VND",
+      "price": "150000",
       "review": "Chả cá nướng thơm ngon, ăn kèm bún, rau sống và nước mắm chấm đặc biệt."
     },
     {
@@ -96,7 +96,7 @@
       "name": "Gỏi Cuốn",
       "restaurant": "Gỏi Cuốn Ngon",
       "address": "50 Đề Thám, Quận 1, TP. HCM",
-      "price": "10,000 VND/cuốn",
+      "price": "10000/cuốn",
       "review": "Gỏi cuốn tươi ngon, nước chấm đặc biệt, thích hợp làm món ăn nhẹ."
     },
     {
@@ -105,7 +105,7 @@
       "name": "Lẩu Cá Kèo",
       "restaurant": "Lẩu Cá Kèo Bà Huyện",
       "address": "87 Bà Huyện Thanh Quan, Quận 3, TP. HCM",
-      "price": "200,000 VND/nồi",
+      "price": "200000/nồi",
       "review": "Lẩu cá kèo đậm đà, cá tươi ngon, rau ăn kèm phong phú."
     },
     {
@@ -114,7 +114,7 @@
       "name": "Bánh Tráng Trộn",
       "restaurant": "Bánh Tráng Trộn Chú Viên",
       "address": "38 Nguyễn Thượng Hiền, Quận 3, TP. HCM",
-      "price": "20,000 VND",
+      "price": "20000",
       "review": "Bánh tráng trộn ngon, gia vị hài hòa, thích hợp làm món ăn vặt."
     },
     {
@@ -123,7 +123,7 @@
       "name": "Bún Mắm",
       "restaurant": "Bún Mắm 444",
       "address": "444 Trần Hưng Đạo, Quận 5, TP. HCM",
-      "price": "70,000 VND",
+      "price": "70000",
       "review": "Bún mắm đậm đà, hương vị đặc trưng, tôm thịt tươi ngon."
     },
     {
@@ -132,7 +132,7 @@
       "name": "Chè Thái",
       "restaurant": "Chè Thái Ý Phương",
       "address": "380 Nguyễn Tri Phương, Quận 10, TP. HCM",
-      "price": "30,000 VND",
+      "price": "30000",
       "review": "Chè Thái mát lạnh, ngọt dịu, nhiều topping ngon."
     }
   ],
@@ -143,7 +143,7 @@
       "name": "Hủ Tiếu Nam Vang",
       "restaurant": "Quán 123",
       "address": "123 Lê Lợi, Quận 1, TP. HCM",
-      "price": "50,000 VND",
+      "price": "50000",
       "review": "Hủ tiếu Nam Vang ngon, nước dùng đậm đà, thịt gà thơm."
     },
     {
@@ -152,7 +152,7 @@
       "name": "Bánh Tráng Trộn",
       "restaurant": "Quán ABC",
       "address": "456 Nguyễn Văn Linh, Quận 7, TP. HCM",
-      "price": "25,000 VND",
+      "price": "25000",
       "review": "Bánh tráng trộn với hành phi, đậu phộng, tôm khô, ngon miệng."
     },
     {
@@ -161,7 +161,7 @@
       "name": "Hủ Tiếu Nam Vang",
       "restaurant": "Quán XYZ",
       "address": "789 Cách Mạng Tháng Tám, Quận 3, TP. HCM",
-      "price": "40,000 VND",
+      "price": "40000",
       "review": "Hủ tiếu Nam Vang thơm ngon, nước dùng đậm đà, rau sống tươi."
     },
     {
@@ -170,7 +170,7 @@
       "name": "Bún Riêu",
       "restaurant": "Quán MNP",
       "address": "101 Lê Văn Sỹ, Quận Tân Bình, TP. HCM",
-      "price": "35,000 VND",
+      "price": "35000",
       "review": "Bún riêu với cua, lòng, giò heo, thơm ngon, nước dùng đậm đà."
     },
     {
@@ -179,7 +179,7 @@
       "name": "Bánh Xèo",
       "restaurant": "Quán QRS",
       "address": "246 Nguyễn Đình Chiểu, Quận 3, TP. HCM",
-      "price": "30,000 VND",
+      "price": "30000",
       "review": "Bánh xèo giòn, nhân đậu xanh, thịt heo, tôm, rau sống, nước chấm."
     },
     {
@@ -188,7 +188,7 @@
       "name": "Bún Bò Huế",
       "restaurant": "Quán STU",
       "address": "369 Phan Xích Long, Phú Nhuận, TP. HCM",
-      "price": "45,000 VND",
+      "price": "45000",
       "review": "Bún bò Huế với thịt bò, bún mềm, nước dùng đậm đà, ăn kèm rau sống."
     },
     {
@@ -197,7 +197,7 @@
       "name": "Phở Gà",
       "restaurant": "Quán VWX",
       "address": "567 Võ Văn Tần, Quận 10, TP. HCM",
-      "price": "40,000 VND",
+      "price": "40000",
       "review": "Phở gà thơm ngon, nước dùng đậm đà, thịt gà mềm."
     }
   ],
@@ -208,7 +208,7 @@
       "name": "Tom Yum",
       "restaurant": "Quán Thái Hương",
       "address": "58 Nguyễn Huệ, Quận 1, TP. HCM",
-      "price": "65,000 VND",
+      "price": "65000",
       "review": "Tom Yum cay nồng, hương vị đặc trưng của Thái Lan."
     },
     {
@@ -217,7 +217,7 @@
       "name": "Nasi Goreng",
       "restaurant": "Quán Indo 123",
       "address": "789 Cách Mạng Tháng Tám, Quận 3, TP. HCM",
-      "price": "50,000 VND",
+      "price": "50000",
       "review": "Nasi Goreng đậm đà, hương vị Indonesia."
     },
     {
@@ -226,7 +226,7 @@
       "name": "Sushi Combo",
       "restaurant": "Quán Sushi Nhật",
       "address": "246 Nguyễn Đình Chiểu, Quận 3, TP. HCM",
-      "price": "120,000 VND",
+      "price": "120000",
       "review": "Sushi combo đa dạng, tươi ngon, chuẩn phong cách Nhật Bản."
     },
     {
@@ -235,7 +235,7 @@
       "name": "Bibimbap",
       "restaurant": "Quán Hàn Quốc",
       "address": "123 Trần Hưng Đạo, Quận 1, TP. HCM",
-      "price": "70,000 VND",
+      "price": "70000",
       "review": "Bibimbap đậm đà, hương vị Hàn Quốc."
     },
     {
@@ -244,7 +244,7 @@
       "name": "Dim Sum",
       "restaurant": "Quán Trung Hoa",
       "address": "456 Lê Lợi, Quận 1, TP. HCM",
-      "price": "80,000 VND",
+      "price": "80000",
       "review": "Dim Sum đa dạng, hương vị Trung Hoa."
     },
     {
@@ -253,7 +253,7 @@
       "name": "Ramen",
       "restaurant": "Quán Nhật Bản",
       "address": "789 Lê Văn Sỹ, Quận Tân Bình, TP. HCM",
-      "price": "90,000 VND",
+      "price": "90000",
       "review": "Ramen đậm đà, hương vị Nhật Bản."
     },
     {
@@ -262,7 +262,7 @@
       "name": "Satay",
       "restaurant": "Quán Malaysia",
       "address": "369 Phan Xích Long, Phú Nhuận, TP. HCM",
-      "price": "60,000 VND",
+      "price": "60000",
       "review": "Satay thơm ngon, đậm vị Malaysia."
     }
   ],
@@ -273,7 +273,7 @@
       "name": "Pizza",
       "restaurant": "Pizza Italia",
       "address": "123 Lê Lợi, Quận 1, TP. HCM",
-      "price": "150,000 VND",
+      "price": "150000",
       "review": "Pizza thơm ngon, vỏ giòn, phục vụ nhanh chóng."
     },
     {
@@ -282,7 +282,7 @@
       "name": "Pasta Carbonara",
       "restaurant": "Pasta House",
       "address": "456 Hai Bà Trưng, Quận 3, TP. HCM",
-      "price": "120,000 VND",
+      "price": "120000",
       "review": "Pasta carbonara ngon, sốt béo, phục vụ tận tình."
     },
     {
@@ -291,7 +291,7 @@
       "name": "Bít Tết",
       "restaurant": "Steak House",
       "address": "789 Nguyễn Trãi, Quận 5, TP. HCM",
-      "price": "250,000 VND",
+      "price": "250000",
       "review": "Bít tết mềm, thơm, chất lượng thịt tốt."
     },
     {
@@ -300,7 +300,7 @@
       "name": "Fish and Chips",
       "restaurant": "Fish & Chips Corner",
       "address": "101 Lê Đại Hành, Quận Tân Bình, TP. HCM",
-      "price": "180,000 VND",
+      "price": "180000",
       "review": "Fish and chips giòn, cá tươi, khoai tây giòn rụm."
     },
     {
@@ -309,7 +309,7 @@
       "name": "Crêpe",
       "restaurant": "Crêpe Café",
       "address": "246 Nguyễn Thị Minh Khai, Quận 1, TP. HCM",
-      "price": "80,000 VND",
+      "price": "80000",
       "review": "Crêpe mỏng, nhân ngọt, phục vụ nhanh nhẹn."
     },
     {
@@ -318,7 +318,7 @@
       "name": "Quiche Lorraine",
       "restaurant": "Quiche Bakery",
       "address": "369 Phan Đình Phùng, Phú Nhuận, TP. HCM",
-      "price": "90,000 VND",
+      "price": "90000",
       "review": "Quiche Lorraine thơm ngon, vừa miệng."
     },
     {
@@ -327,7 +327,7 @@
       "name": "Risotto",
       "restaurant": "Risotto Heaven",
       "address": "567 Lê Quang Định, Quận 3, TP. HCM",
-      "price": "200,000 VND",
+      "price": "200000",
       "review": "Risotto cung cấp đa dạng, thơm, nấm tươi."
     }
   ],
@@ -338,7 +338,7 @@
       "name": "Bibimbap",
       "restaurant": "Bibimbap House",
       "address": "123 Nguyễn Du, Quận 1, TP. HCM",
-      "price": "100,000 VND",
+      "price": "100000",
       "review": "Bibimbap thơm ngon, đa dạng rau củ, thịt bò mềm."
     },
     {
@@ -347,7 +347,7 @@
       "name": "Kimchi Jjigae",
       "restaurant": "Kimchi House",
       "address": "456 Nguyễn Cư Trinh, Quận 3, TP. HCM",
-      "price": "120,000 VND",
+      "price": "120000",
       "review": "Kimchi jjigae cay nồng, thơm, rau sống giòn."
     },
     {
@@ -356,7 +356,7 @@
       "name": "Samgyeopsal",
       "restaurant": "Samgyeopsal BBQ",
       "address": "789 Hai Bà Trưng, Quận 5, TP. HCM",
-      "price": "200,000 VND",
+      "price": "200000",
       "review": "Samgyeopsal tươi ngon, thịt mềm, sốt đậm đà."
     },
     {
@@ -365,7 +365,7 @@
       "name": "Japchae",
       "restaurant": "Japchae Corner",
       "address": "101 Nguyễn Thái Học, Quận Tân Bình, TP. HCM",
-      "price": "150,000 VND",
+      "price": "150000",
       "review": "Japchae thơm ngon, mỳ đặc biệt, rau củ tươi."
     },
     {
@@ -374,7 +374,7 @@
       "name": "Tteokbokki",
       "restaurant": "Tteokbokki Delight",
       "address": "246 Lê Lai, Quận 1, TP. HCM",
-      "price": "80,000 VND",
+      "price": "80000",
       "review": "Tteokbokki cay nồng, tteok dai, phục vụ nhanh."
     },
     {
@@ -383,7 +383,7 @@
       "name": "Kimbap",
       "restaurant": "Kimbap Express",
       "address": "369 Võ Văn Tần, Phú Nhuận, TP. HCM",
-      "price": "70,000 VND",
+      "price": "70000",
       "review": "Kimbap nhân đa dạng, cuốn đẹp, gia vị vừa miệng."
     },
     {
@@ -392,7 +392,7 @@
       "name": "Bulgogi",
       "restaurant": "Bulgogi Heaven",
       "address": "567 Trần Hưng Đạo, Quận 5, TP. HCM",
-      "price": "180,000 VND",
+      "price": "180000",
       "review": "Bulgogi thơm ngon, thịt mềm, gia vị đậm đà."
     }
   ],
@@ -403,7 +403,7 @@
       "name": "Sushi",
       "restaurant": "Sushi Bar",
       "address": "123 Lê Lợi, Quận 1, TP. HCM",
-      "price": "200,000 VND",
+      "price": "200000",
       "review": "Sushi tươi ngon, đa dạng loại, phục vụ chuẩn mực."
     },
     {
@@ -412,7 +412,7 @@
       "name": "Ramen",
       "restaurant": "Ramen House",
       "address": "456 Hai Bà Trưng, Quận 3, TP. HCM",
-      "price": "150,000 VND",
+      "price": "150000",
       "review": "Ramen nước dùng đậm đà, mì mềm, topping hấp dẫn."
     },
     {
@@ -421,7 +421,7 @@
       "name": "Udon",
       "restaurant": "Udon Corner",
       "address": "789 Nguyễn Trãi, Quận 5, TP. HCM",
-      "price": "120,000 VND",
+      "price": "120000",
       "review": "Udon nấu chín đúng điểm, mì dai, nước dùng thơm."
     },
     {
@@ -430,7 +430,7 @@
       "name": "Gyudon",
       "restaurant": "Gyudon Spot",
       "address": "101 Nguyễn Thái Học, Quận Tân Bình, TP. HCM",
-      "price": "100,000 VND",
+      "price": "100000",
       "review": "Gyudon thơm ngon, thịt bò mềm, trứng ốp mặt."
     },
     {
@@ -439,7 +439,7 @@
       "name": "Tempura",
       "restaurant": "Tempura Delight",
       "address": "246 Lê Lai, Quận 1, TP. HCM",
-      "price": "180,000 VND",
+      "price": "180000",
       "review": "Tempura giòn, nhân tươi, phục vụ nhanh chóng."
     },
     {
@@ -448,7 +448,7 @@
       "name": "Yakitori",
       "restaurant": "Yakitori House",
       "address": "369 Điện Biên Phủ, Quận 10, TP. HCM",
-      "price": "90,000 VND",
+      "price": "90000",
       "review": "Yakitori thơm ngon, gia vị đậm đà, nướng vừa chín."
     },
     {
@@ -457,7 +457,7 @@
       "name": "Okonomiyaki",
       "restaurant": "Okonomiyaki Corner",
       "address": "567 Phạm Ngũ Lão, Quận 1, TP. HCM",
-      "price": "160,000 VND",
+      "price": "160000",
       "review": "Okonomiyaki thơm ngon, nhân đa dạng, nướng giòn."
     }
   ],
@@ -468,7 +468,7 @@
       "name": "Cupcake",
       "restaurant": "Cupcake Heaven",
       "address": "123 Đường Lê Lợi, Quận 1, TP. HCM",
-      "price": "30,000 VND",
+      "price": "30000",
       "review": "Cupcake ngọt ngào, béo thơm, kem tươi."
     },
     {
@@ -477,7 +477,7 @@
       "name": "Cheesecake",
       "restaurant": "Cheesecake Factory",
       "address": "456 Đường Nguyễn Huệ, Quận 3, TP. HCM",
-      "price": "50,000 VND",
+      "price": "50000",
       "review": "Cheesecake mềm mịn, vị phô mai đậm đà."
     },
     {
@@ -486,7 +486,7 @@
       "name": "Ice Cream",
       "restaurant": "Ice Cream Parlor",
       "address": "789 Đường Lê Thánh Tôn, Quận 5, TP. HCM",
-      "price": "40,000 VND",
+      "price": "40000",
       "review": "Kem ngon, hương vị đa dạng, phục vụ tốt."
     },
     {
@@ -495,7 +495,7 @@
       "name": "Macarons",
       "restaurant": "Macarons Boutique",
       "address": "101 Đường Trần Hưng Đạo, Quận Tân Bình, TP. HCM",
-      "price": "60,000 VND",
+      "price": "60000",
       "review": "Macarons màu sắc đẹp mắt, vị ngọt nhẹ nhàng."
     },
     {
@@ -504,7 +504,7 @@
       "name": "Waffle",
       "restaurant": "Waffle House",
       "address": "246 Đường Nguyễn Thị Minh Khai, Quận 1, TP. HCM",
-      "price": "45,000 VND",
+      "price": "45000",
       "review": "Waffle giòn, ăn kèm siro hoặc kem đều ngon."
     },
     {
@@ -513,7 +513,7 @@
       "name": "Pudding",
       "restaurant": "Pudding Corner",
       "address": "369 Đường Phan Xích Long, Phú Nhuận, TP. HCM",
-      "price": "35,000 VND",
+      "price": "35000",
       "review": "Pudding mềm, thơm ngon, hương vị đa dạng."
     },
     {
@@ -522,7 +522,7 @@
       "name": "Tiramisu",
       "restaurant": "Tiramisu Café",
       "address": "567 Đường Cách Mạng Tháng Tám, Quận 10, TP. HCM",
-      "price": "55,000 VND",
+      "price": "55000",
       "review": "Tiramisu đậm đà, kem phô mai, cà phê thơm."
     }
   ],
@@ -651,6 +651,31 @@
       "firstName": "dadsasdadsasd",
       "lastName": "asdasdasd",
       "id": 16
+    },
+    {
+      "email": "maixuansang1123@gmail.cs",
+      "password": "$2a$10$M9IRhIebNEZXBYu7UjQ2juDbqqAFmik.avt9TwOpTsIhFNLlVTzW.",
+      "confirmPassword": "123456789",
+      "phoneNumber": "0964417590",
+      "firstName": "dadsasdadsasd",
+      "lastName": "hahahahahahaha",
+      "id": 17
+    },
+    {
+      "email": "olivier@mail.caa",
+      "password": "$2a$10$Bdgzammj5HPv5Q5kf.s7XeMaZ/LwxlZjpxvrNisZta55gjuY7FhNe",
+      "phoneNumber": "098102933",
+      "firstName": "Bao",
+      "lastName": "sangggg",
+      "id": 18
+    },
+    {
+      "email": "admin@mail.com",
+      "password": "$2a$10$TRDtmHTb3NezZJvPFWoyV./tz60t5ezIg0Nt.g4w1RCMUELRk2.Na",
+      "phoneNumber": "098102933",
+      "firstName": "Bao",
+      "lastName": "sangggg",
+      "id": 19
     }
   ]
 }
