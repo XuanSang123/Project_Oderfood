@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 import { adjustQuantity, removeFromCart } from "../../redux/slices/cartReducer";
 import { moneyFormat } from "../../utilities/stringUtil";

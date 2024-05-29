@@ -1,14 +1,18 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import CartItem from "./CartItem";
 import { moneyFormat } from "../../utilities/stringUtil";
+import Navigation from "../Navigation/Navigation";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import './Cart.css'
 
 export default function Cart() {
   const items = useSelector((state) => state.cart.items);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
-
   return (
     <>
+    <Header/>
+    <Navigation/>
       <h1>Đơn hàng</h1>
       <div className="details">
         <table>
@@ -33,6 +37,7 @@ export default function Cart() {
           <button>Thanh Toán</button>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }
