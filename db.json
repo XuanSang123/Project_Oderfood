@@ -101,16 +101,6 @@
       "categories": "foods"
     },
     {
-      "id": "d4e5f6",
-      "image": "./public/lau-ca-keo-ba-huyen.jpg",
-      "name": "Lẩu Cá Kèo",
-      "restaurant": "Lẩu Cá Kèo Bà Huyện",
-      "address": "87 Bà Huyện Thanh Quan, Quận 3, TP. HCM",
-      "price": 200000,
-      "review": "Lẩu cá kèo đậm đà, cá tươi ngon, rau ăn kèm phong phú.",
-      "categories": "foods"
-    },
-    {
       "id": "g7h8i9",
       "image": "./public/banh-trang-tron-chu-vien.jpeg",
       "name": "Bánh Tráng Trộn",
@@ -560,7 +550,6 @@
       "categories": "vietfood",
       "id": "uJtUCvK"
     }
-  
   ],
   "users": [
     {

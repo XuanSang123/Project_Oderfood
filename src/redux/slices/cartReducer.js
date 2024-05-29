@@ -10,6 +10,7 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
+      console.log(state, "hoziontail");
       const itemIndex = state.items.findIndex(
         (item) => item.id === action.payload.id
       );

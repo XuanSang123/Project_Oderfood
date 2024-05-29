@@ -1,9 +1,9 @@
 // components/Navigation/Navigation.js
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Select from "react-select";
 import "./Navigation.css";
-
+import ListFood from "../ListFood/ListFood";
 const cityOptions = [
   { value: "TPHCM", label: "TP.HCM" },
   { value: "HN", label: "Hà Nội" },
@@ -15,6 +15,18 @@ const cityOptions = [
 ];
 
 export default function Navigation() {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(event.target[0].value);
+    setSearchTerm(event.target[0].value);
+  };
+
+  // const filteredItems = { ListFood }.filter((item) =>
+  //   item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  // );
+
   return (
     <>
       <div id="nav-search">
@@ -27,10 +39,17 @@ export default function Navigation() {
               isClearable
             />
           </div>
-          <div className="advance-input">
-            <input type="text" placeholder="Search" className="search-input" />
-            <button className="search-btn">Search</button>
-          </div>
+          <form className="advance-input" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              // value={searchTerm}
+              placeholder="Search"
+              className="search-input"
+            />
+            <button className="search-btn" type="submit">
+              Search
+            </button>
+          </form>
         </div>
         <div className="food-nav">
           <Link to={"/"} className="food-btn">
