@@ -8,15 +8,25 @@ import {
   faCartShopping,
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../redux/slices/authReducer";
 
 export default function Header() {
-  const [isShow, setIsShow] = useState(localStorage.getItem("USER"));
+  const dispatch = useDispatch();
+  const isLogin = useSelector((state) => state.auth.isLogin);
+  const cartItems = useSelector((state) => state.cart.items);
+
+  const totalQuantity = cartItems.reduce((acc, currentValue) => {
+    return acc + currentValue.quantity;
+  }, 0);
+
   const handleSingout = () => {
-    console.log("hihi");
     localStorage.removeItem("USER");
     localStorage.removeItem("TOKEN");
-    setIsShow(false);
+    // Set state isLogin ==== false
+    dispatch(logout());
   };
+
   return (
     <div id="header">
       <div className="header-img">
@@ -28,18 +38,19 @@ export default function Header() {
       <div className="header-user-shopping">
         <Link to="/login">
           <FontAwesomeIcon icon={faUser} />
-          <span>{localStorage.getItem("USER")}</span>
+          {isLogin && <span>{localStorage.getItem("USER")}</span>}
         </Link>
         <span>
-          {isShow && (
+          {isLogin && (
             <FontAwesomeIcon
               icon={faRightFromBracket}
               onClick={handleSingout}
             />
           )}
         </span>
-        <Link to="/details">
+        <Link to="/cart">
           <FontAwesomeIcon icon={faCartShopping} />
+          {totalQuantity}
         </Link>
       </div>
     </div>

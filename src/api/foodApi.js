@@ -1,12 +1,13 @@
 import axiosClient from "./axiosClient";
 
 const foodApi = {
-  getAsiaFood: () => axiosClient.get("asiafood"),
-  getDessertsfood: () => axiosClient.get("dessertsfood"),
-  getEuropeanfood: () => axiosClient.get("europeanfood"),
-  getJapansefood: () => axiosClient.get("japanesefood"),
-  getKoreafood: () => axiosClient.get("koreanfood"),
-  getVietfood: () => axiosClient.get("vietfood"),
+  getListFood: () => axiosClient.get("allfood"),
+  getAsiaFood: () => axiosClient.get("allfood?categories=asiafood"),
+  getDessertsfood: () => axiosClient.get("allfood?categories=dessertsfood"),
+  getEuropeanfood: () => axiosClient.get("allfood?categories=europeanfood"),
+  getJapansefood: () => axiosClient.get("allfood?categories=japanesefood"),
+  getKoreafood: () => axiosClient.get("allfood?categories=koreanfood"),
+  getVietfood: () => axiosClient.get("allfood?categories=vietfood"),
 };
 
 export default foodApi;

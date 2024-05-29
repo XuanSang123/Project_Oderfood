@@ -84,7 +84,6 @@ export default function Register() {
         localStorage.setItem("USER", data.user.email);
         navigate("/");
       } catch (error) {
-        console.log(error.response.data);
         setErrorMess(error.response.data);
       }
     },

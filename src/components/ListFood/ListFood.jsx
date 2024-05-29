@@ -1,37 +1,29 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import "./ListFood.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import  Navigation  from '../Navigation/Navigation';
-
+import Navigation from "../Navigation/Navigation";
+import foodApi from "../../api/foodApi";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/slices/cartReducer";
 export default function ListFood() {
   const [foods, setFoods] = useState([]);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/allfood/?categories=foods")
-      .then((response) => {
-        setFoods(response.data);
-      })
-      .catch((error) => {
-        console.error("There was an error fetching the foods!", error);
-      });
+    const fetchListFood = async () => {
+      try {
+        const { data } = await foodApi.getListFood();
+        setFoods(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchListFood();
   }, []);
 
-  const handleDetails = (id) => {
-    const order = JSON.parse(localStorage.getItem("order")) || [];
-    const food = foods.find((food) => food.id === id);
-    const orderFood = order.find((orderFood) => orderFood.id === id);
-
-    if (orderFood) {
-      orderFood.quantity += 1;
-    } else {
-      order.push({ ...food, quantity: 1 });
-    }
-
-    localStorage.setItem("order", JSON.stringify(order));
-    alert("Đặt món thành công");
-    history.push("/details");
+  const handleDetails = (food) => {
+    dispatch(addToCart(food));
   };
 
   return (
@@ -48,7 +40,7 @@ export default function ListFood() {
             <p>Address: {food.address}</p>
             <p>Price: {food.price}</p>
             <p>Review: {food.review}</p>
-            <button onClick={() => handleDetails(food.id)}>Đặt món</button>
+            <button onClick={() => handleDetails(food)}>Đặt món</button>
           </div>
         ))}
       </div>
