@@ -1,0 +1,77 @@
+#user-info {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#user-info .title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#user-info .title h2 {
+    font-size: 24px;
+    margin: 0;
+    color: #333;
+}
+
+#user-info .information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar {
+    margin-bottom: 20px;
+}
+
+.avatar img {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    padding: 100px;
+}
+
+#user-info .info {
+    width: 100%;
+}
+
+#user-info .info form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#user-info .info label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+}
+
+#user-info .info input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#user-info .info input[type="text"],
+#user-info .info input[type="email"],
+#user-info .info input[type="tel"] {
+    transition: border-color 0.3s;
+}
+
+#user-info .info input[type="text"]:focus,
+#user-info .info input[type="email"]:focus,
+#user-info .info input[type="tel"]:focus {
+    border-color: #66afe9;
+    outline: none;
+}

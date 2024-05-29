@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -53,6 +52,14 @@ export default function Header() {
           {totalQuantity}
         </Link>
       </div>
+      {isLogin && (
+        <div className="user-info">
+        <Link to="/userInfo">Thông tin cá nhân</Link>
+        <Link to="/cart">Đơn hàng</Link>
+        <Link to="/login" onClick={handleSingout}>
+          Đăng xuất </Link>
+      </div>
+      )}
     </div>
   );
 }
