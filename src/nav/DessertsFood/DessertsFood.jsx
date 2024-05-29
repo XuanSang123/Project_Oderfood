@@ -4,67 +4,30 @@ import foodApi from "../../api/foodApi";
 import Header from "../../components/Header/Header";
 import Navigation from "../../components/Navigation/Navigation";
 import Footer from "../../components/Footer/Footer";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/slices/cartReducer";
 
 export default function DessertsFood() {
   // const navigate = useNavigate();
   const dispatch = useDispatch();
-  const cartstore = useSelector((store) => store.cartStore);
+  // const cartstore = useSelector((store) => store.cartStore);
   const [foods, setFoods] = useState([]);
-  const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    // axios.get('http://localhost:3000/dessertsfood')
-    //   .then((response) => {
-    //     setFoods(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.error("There was an error fetching the foods!", error);
-    //   });
-
     const fetchDessertsFood = async () => {
       try {
         const { data } = await foodApi.getDessertsfood();
         setFoods(data);
       } catch (error) {
-        console.error("There was an error fetching the foods!", error);
+        console.error(error);
       }
     };
     fetchDessertsFood();
   }, []);
 
   const handleDetails = (food) => {
-    // console.log(food);
-    const existedItem = foods?.find((product) => product.id == food.id);
-    console.log(existedItem, "sang");
-    if (existedItem) {
-      existedItem.quantity++;
-      setCart([...foods]);
-    } else {
-      const newProduct = {
-        ...food,
-        quantity: 1,
-      };
-      setCart([...foods, newProduct]);
-      localStorage.setItem("Food", JSON.stringify([...foods, newProduct]));
-    }
+    dispatch(addToCart(food));
   };
-
-  // const handleDetails = () => {
-  //   // const order = JSON.parse(localStorage.getItem("order")) || [];
-  //   // const food = foods.find((food) => food.id === id);
-  //   // const orderFood = order.find((orderFood) => orderFood.id === id);
-  //   // if (orderFood) {
-  //   //   orderFood.quantity += 1;
-  //   // } else {
-  //   //   order.push({ ...food, quantity: 1 });
-  //   // }
-  //   // localStorage.setItem("order", JSON.stringify(order));
-  //   dispatch(addToCart());
-  //   alert("Đặt món thành công");
-  //   // navigate("/cart");
-  // };
 
   return (
     <>

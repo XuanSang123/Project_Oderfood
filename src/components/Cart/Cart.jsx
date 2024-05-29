@@ -1,11 +1,11 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import CartItem from "./CartItem";
+import { moneyFormat } from "../../utilities/stringUtil";
 
 export default function Cart() {
-  const cartStore = useSelector((store) => store.cart.data);
-  console.log(cartStore, "aaaa");
-  const dispacth = useDispatch();
+  const items = useSelector((state) => state.cart.items);
+  const totalPrice = useSelector((state) => state.cart.totalPrice);
 
   return (
     <>
@@ -23,13 +23,13 @@ export default function Cart() {
             </tr>
           </thead>
           <tbody>
-            {cartStore.map((item) => (
-              <CartItem item={item} />
+            {items.map((item) => (
+              <CartItem key={item.id} item={item} />
             ))}
           </tbody>
         </table>
         <div className="grand-total">
-          <h2>Tổng tiền:</h2>
+          <h2>Tổng tiền: {moneyFormat(totalPrice)}</h2>
           <button>Thanh Toán</button>
         </div>
       </div>

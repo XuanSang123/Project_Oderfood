@@ -12,17 +12,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/slices/authReducer";
 
 export default function Header() {
-  const isLogin = useSelector((state) => state.auth.isLogin);
   const dispatch = useDispatch();
-  const cartstore = useSelector((store) => store.cart.data);
+  const isLogin = useSelector((state) => state.auth.isLogin);
+  const cartItems = useSelector((state) => state.cart.items);
 
-  // console.log(cartstore, "aaa");
+  const totalQuantity = cartItems.reduce((acc, currentValue) => {
+    return acc + currentValue.quantity;
+  }, 0);
+
   const handleSingout = () => {
     localStorage.removeItem("USER");
     localStorage.removeItem("TOKEN");
     // Set state isLogin ==== false
     dispatch(logout());
   };
+
   return (
     <div id="header">
       <div className="header-img">
@@ -46,9 +50,7 @@ export default function Header() {
         </span>
         <Link to="/cart">
           <FontAwesomeIcon icon={faCartShopping} />
-          {cartstore?.reduce((current, next) => {
-            return (current += next.quantity);
-          }, 0)}
+          {totalQuantity}
         </Link>
       </div>
     </div>

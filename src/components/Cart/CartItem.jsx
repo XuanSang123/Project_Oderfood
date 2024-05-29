@@ -1,20 +1,19 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { adjustQuantity, removeFromCart } from "../../redux/slices/cartReducer";
+import { moneyFormat } from "../../utilities/stringUtil";
 
 export default function CartItem({ item }) {
-  const [quantity, setQuantity] = useState(item.quantity);
+  const dispatch = useDispatch();
 
-  function handleincrement() {
-    setQuantity(quantity + 1);
-  }
+  const handleAdjustQuantity = (itemId, quantity) => {
+    dispatch(adjustQuantity({ id: itemId, quantity }));
+  };
 
-  let timeout = null;
-  useEffect(() => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
-      axios.post;
-    }, 500);
-  }, [quantity]);
+  const handleRemoveItem = (itemId) => {
+    dispatch(removeFromCart({ id: itemId }));
+  };
+
   return (
     <tr key={item.id}>
       <td>
@@ -25,21 +24,23 @@ export default function CartItem({ item }) {
         />
       </td>
       <td data-label="Tên Sản Phẩm">{item.name}</td>
-      <td data-label="Giá">{item.price}VND</td>
+      <td data-label="Giá">{moneyFormat(item.price)}</td>
       <td data-label="Số Lượng">
-        <button>-</button>
-        <span>{quantity}</span>
         <button
-          onClick={() => {
-            handleincrement();
-          }}
+          onClick={() => handleAdjustQuantity(item.id, item.quantity - 1)}
+        >
+          -
+        </button>
+        <span>{item.quantity}</span>
+        <button
+          onClick={() => handleAdjustQuantity(item.id, item.quantity + 1)}
         >
           +
         </button>
       </td>
-      <td data-label="Thành Tiền">{item.price * item.quantity}</td>
+      <td data-label="Thành Tiền">{moneyFormat(item.price * item.quantity)}</td>
       <td data-label="Hành Động">
-        <button>Xoá</button>
+        <button onClick={() => handleRemoveItem(item.id)}>Xoá</button>
       </td>
     </tr>
   );

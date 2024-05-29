@@ -35,6 +35,9 @@ import { useDispatch } from "react-redux";
 import { login } from "../redux/slices/authReducer";
 import "./Login.css";
 import authApi from "../api/authApi";
+import Header from "../../src/components/Header/Header";
+import Navigation from "../../src/components/Navigation/Navigation";
+import Footer from "../../src/components/Footer/Footer";
 
 // sử dụng thư viện formmik
 export default function Login() {
@@ -123,36 +126,41 @@ export default function Login() {
   // };
 
   return (
-    <div id="login">
-      <h1>Login</h1>
-      <form onSubmit={formik.handleSubmit}>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          placeholder="Email"
-          onChange={formik.handleChange}
-          value={formik.values.email}
-        />
-        {formik.errors.email && (
-          <span className="error">{formik.errors.email}</span>
-        )}
-        <input
-          id="password"
-          name="password"
-          type="password"
-          placeholder="Password"
-          onChange={formik.handleChange}
-          value={formik.values.password}
-        />
-        {formik.errors.password && (
-          <span className="error">{formik.errors.password}</span>
-        )}
-        <div>
-          <button type="submit">Đăng nhập</button>
-          <Link to={"/register"}>Bạn đã có tài khoản chưa ?</Link>
-        </div>
-      </form>
-    </div>
+    <>
+      <Header />
+      <Navigation />
+      <div id="login">
+        <h1>Login</h1>
+        <form onSubmit={formik.handleSubmit}>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Email"
+            onChange={formik.handleChange}
+            value={formik.values.email}
+          />
+          {formik.errors.email && (
+            <span className="error">{formik.errors.email}</span>
+          )}
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Password"
+            onChange={formik.handleChange}
+            value={formik.values.password}
+          />
+          {formik.errors.password && (
+            <span className="error">{formik.errors.password}</span>
+          )}
+          <div>
+            <button type="submit">Đăng nhập</button>
+            <Link to={"/register"}>Bạn đã có tài khoản chưa ?</Link>
+          </div>
+        </form>
+      </div>
+      <Footer />
+    </>
   );
 }
