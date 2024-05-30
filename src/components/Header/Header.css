@@ -39,11 +39,28 @@
 .header-user-shopping a:hover {
   color: #007bff;
 }
-.user-info{
+
+
+.user-icon {
+  position: relative;
+}
+
+.user-info {
   position: absolute;
-  top: 70px;
-  right: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  padding: 10px;
+  display: none;
+  top: 20px;
+  right: -50px;
+}
+.user-info a {
+  color: aliceblue;
+  font-size: 20px;
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.user-icon:hover .user-info,
+.user-info:hover {
+  display: block;
 }

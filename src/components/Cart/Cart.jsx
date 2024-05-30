@@ -1,18 +1,43 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import CartItem from "./CartItem";
 import { moneyFormat } from "../../utilities/stringUtil";
 import Navigation from "../Navigation/Navigation";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import './Cart.css'
+import './Cart.css';
+import { clearCart } from "../../redux/slices/cartReducer";
 
 export default function Cart() {
   const items = useSelector((state) => state.cart.items);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // Handle payment
+  const handlePayment = () => {
+    let payment = JSON.parse(localStorage.getItem("cart")) || [];
+    let data = {
+      items: items,
+      totalPrice: totalPrice,
+      totalQuantity: totalQuantity,
+    };
+    payment.push(data);
+    localStorage.setItem("cart", JSON.stringify(payment));
+    alert("Thanh toán thành công");
+    
+    // Clear the cart in the Redux store
+    dispatch(clearCart());
+    
+    // Navigate to home page
+    navigate("/");
+  };
+
   return (
     <>
-    <Header/>
-    <Navigation/>
+      <Header />
+      <Navigation />
       <h1>Đơn hàng</h1>
       <div className="details">
         <table>
@@ -34,10 +59,10 @@ export default function Cart() {
         </table>
         <div className="grand-total">
           <h2>Tổng tiền: {moneyFormat(totalPrice)}</h2>
-          <button>Thanh Toán</button>
+          <button onClick={handlePayment}>Thanh Toán</button>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

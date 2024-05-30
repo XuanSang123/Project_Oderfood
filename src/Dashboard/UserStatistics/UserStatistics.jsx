@@ -192,6 +192,7 @@ const UserStatistics = () => {
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
+                <th>Địa chỉ</th>
                 <th>Điện thoại</th>
                 <th>Thao tác</th>
               </tr>
@@ -202,6 +203,7 @@ const UserStatistics = () => {
                   <td>{user.firstName}</td>
                   <td>{user.lastName}</td>
                   <td>{user.email}</td>
+                  <td>{user.address}</td>
                   <td>{user.phoneNumber}</td>
                   <td>
                     <button onClick={() => handleEditClick(user)}>Sửa</button>

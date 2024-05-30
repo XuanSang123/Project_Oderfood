@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
@@ -21,10 +20,6 @@ export default function Login() {
     // Tao object errors
     const errors = {};
     // Check email khong rong
-
-    // if (values.email == "admin" && values.password == "admin") {
-    //   navigate("/dashboard");
-    // }
 
     if (values.email == "admin" && values.password == "admin") {
       navigate("/dashboard");
@@ -73,39 +68,13 @@ export default function Login() {
 
         // Dispatch de set isLogin === true
         dispatch(login());
-
         navigate("/");
-        // window.location.href("/login");
       } catch (error) {
         console.log(error.response.data);
         setDisplayErros(error.response.data);
       }
     },
   });
-
-  // const handleLoginSubmit = (event) => {
-  //   event.preventDefault();
-  //   console.log(event);
-  //   const username = event.target.elements.username.value;
-  //   const password = event.target.elements.password.value;
-
-  //   // Kiểm tra logic đăng nhập
-  //   if (username === "admin" && password === "adminPassword") {
-  //     // Đăng nhập thành công với quyền admin
-  //     localStorage.setItem("userType", "admin");
-  //     // Chuyển hướng đến trang admin
-  //     window.location.href = "/dashboard";
-  //   } else if (username === "user" && password === "userPassword") {
-  //     // Đăng nhập thành công với quyền user
-  //     localStorage.setItem("userType", "user");
-  //     // Chuyển hướng đến trang user
-  //     window.location.href = "/user";
-  //   } else {
-  //     // Đăng nhập thất bại
-  //     alert("Tên đăng nhập hoặc mật khẩu không chính xác");
-  //   }
-  // };
-
   return (
     <>
       <Header />
