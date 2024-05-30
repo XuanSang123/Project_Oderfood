@@ -9,14 +9,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/slices/authReducer";
-import { getToken } from "../../utilities/localStorageUtil";
 
 export default function Header() {
-  // const navigate = useNavigate();
-  const [showUserInfo, setShowUserInfo] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const isLogin = useSelector((state) => state.auth.isLogin);
+  const isLogged = useSelector((state) => state.auth.isLogged);
   const cartItems = useSelector((state) => state.cart.items);
 
   const totalQuantity = cartItems.reduce((acc, currentValue) => {
@@ -30,6 +27,19 @@ export default function Header() {
     navigate("/login");
   };
 
+  const renderHeaderCtas = (
+    <div className="user-info">
+      {isLogged ? (
+        <>
+          <Link to="/userInfo">Thông tin cá nhân</Link>
+          <Link to="/cart">Đơn hàng</Link>
+        </>
+      ) : (
+        <Link to="/login">Login</Link>
+      )}
+    </div>
+  );
+
   return (
     <div id="header">
       <div className="header-img">
@@ -39,27 +49,17 @@ export default function Header() {
         <h1>Food Web</h1>
       </div>
       <div className="header-user-shopping">
-        <div
-          className="user-icon"
-          onMouseEnter={() => setShowUserInfo(true)}
-          onMouseLeave={() => setShowUserInfo(false)}
-        >
+        <div className="user-icon">
           <Link to="#">
             <FontAwesomeIcon icon={faUser} />
-            {isLogin && <span>{localStorage.getItem("USER")}</span>}
+            {isLogged && (
+              <span>{JSON.parse(localStorage.getItem("USER"))?.email}</span>
+            )}
           </Link>
-          {showUserInfo && (
-            <div className="user-info">
-              <Link to="/userInfo">Thông tin cá nhân</Link>
-              <Link to="/cart">Đơn hàng</Link>
-              <Link to="/login" onClick={handleSingout}>
-                Đăng xuất
-              </Link>
-            </div>
-          )}
+          {renderHeaderCtas}
         </div>
         <span>
-          {isLogin && (
+          {isLogged && (
             <FontAwesomeIcon
               icon={faRightFromBracket}
               onClick={handleSingout}
@@ -71,15 +71,6 @@ export default function Header() {
           {totalQuantity}
         </Link>
       </div>
-      {isLogin && (
-        <div className="user-info">
-          <Link to="/userInfo">Thông tin cá nhân</Link>
-          <Link to="/cart">Đơn hàng</Link>
-          <Link to="/login" onClick={handleSingout}>
-            Đăng xuất{" "}
-          </Link>
-        </div>
-      )}
     </div>
   );
 }

@@ -7,17 +7,17 @@ const authSlice = createSlice({
   name: "auth",
   // Tao gia tri khoi tao
   initialState: {
-    isLogin: !!localStorage.getItem("TOKEN") || false,
+    isLogged: !!localStorage.getItem("TOKEN") || false,
   },
   // Tao cac func set state
   reducers: {
     // Set state la true
     login: (state) => {
-      state.isLogin = true;
+      state.isLogged = true;
     },
     // Set state la false
     logout: (state) => {
-      state.isLogin = false;
+      state.isLogged = false;
     },
   },
 });

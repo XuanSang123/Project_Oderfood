@@ -5,10 +5,12 @@ import { moneyFormat } from "../../utilities/stringUtil";
 import Navigation from "../Navigation/Navigation";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import './Cart.css';
+import "./Cart.css";
 import { clearCart } from "../../redux/slices/cartReducer";
+import orderApi from "../../api/orderApi";
 
 export default function Cart() {
+  const isLogged = useSelector((state) => state.auth.isLogged);
   const items = useSelector((state) => state.cart.items);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
@@ -16,18 +18,32 @@ export default function Cart() {
   const dispatch = useDispatch();
 
   // Handle payment
-  const handlePayment = () => {
-    let payment = JSON.parse(localStorage.getItem("cart")) || [];//chuyển đổi payment thành mảng
-    let data = {
-      items: items,
-      totalPrice: totalPrice,
-      totalQuantity: totalQuantity,
-    };
-    payment.push(data);
-    localStorage.setItem("cart", JSON.stringify(payment));//chuyển đổi payment thành chuỗi
-    alert("Thanh toán thành công");
-    dispatch(clearCart());
-    navigate("/");
+  const handlePayment = async () => {
+    try {
+      if (!isLogged) {
+        alert("Vui long dang nhap truoc khi thanh toan");
+        navigate("/login");
+        return;
+      }
+
+      const payment = JSON.parse(localStorage.getItem("orders")) || []; //chuyển đổi payment thành mảng
+      const data = {
+        items: items,
+        totalPrice: totalPrice,
+        totalQuantity: totalQuantity,
+      };
+      payment.push(data);
+      localStorage.setItem("orders", JSON.stringify(payment)); //chuyển đổi payment thành chuỗi
+
+      await orderApi.saveOrder(data);
+
+      alert("Thanh toán thành công");
+      dispatch(clearCart());
+      navigate("/");
+    } catch (error) {
+      alert("Loi khong the thanh toan ");
+      console.log(error.message);
+    }
   };
 
   return (
