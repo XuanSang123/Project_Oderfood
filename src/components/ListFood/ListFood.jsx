@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/slices/cartReducer";
 import Pagination from "./Pagination";
 import Select from "react-select";
+import axios from "axios";
 
 export default function ListFood() {
   const [foods, setFoods] = useState([]);
@@ -93,8 +94,30 @@ export default function ListFood() {
     handleSearch();
   }, [selectedCity, searchKeyword, selectedCategory, foods]);
 
-  const handleDetails = (food) => {
-    dispatch(addToCart(food));
+  
+  const handleDetails = async (food) => {
+    try {
+      const userEmail = localStorage.getItem('USER'); 
+      const { data: userData } = await axios.get(`http://localhost:3000/users?email=${userEmail}`);
+  
+      if (userData.length > 0) {
+        const user = userData[0];
+        const cart = user.cart;
+        const itemIndex = cart.findIndex((item) => item.id === food.id);
+        if (itemIndex >= 0) {
+          cart[itemIndex].quantity += 1;
+        } else {
+          cart.push({ ...food, quantity: 1 });
+        }
+        const totalPrice = user.totalPrice + food.price;
+        await axios.patch(`http://localhost:3000/users/${user.id}`, { cart, totalPrice });
+        dispatch(addToCart(food));
+      } else {
+        console.error("User not found");
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   //lấy món ăn của trang hiện tại
