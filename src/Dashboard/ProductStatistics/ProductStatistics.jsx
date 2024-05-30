@@ -19,7 +19,7 @@ export default function ProductStatistics() {
   });
   const [editProduct, setEditProduct] = useState(null);
   const productsPerPage = 5;
-
+  //lấy danh sách sản phẩm từ server
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -31,7 +31,7 @@ export default function ProductStatistics() {
     };
     fetchData();
   }, []);
-
+  //sắp xếp sản phẩm
   const handleSortClick = () => {
     const sortedProducts = [...products].sort((a, b) => {
       if (sortOrder === "asc") {
@@ -43,7 +43,7 @@ export default function ProductStatistics() {
     setProducts(sortedProducts);
     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
   };
-
+  //thêm sản phẩm mới hoặc chỉnh sửa sản phẩm
   const handleToggle = () => {
     setToggle(!toggle);
     setEditProduct(null);
@@ -56,7 +56,7 @@ export default function ProductStatistics() {
       review: "",
     });
   };
-
+  //lưu sản phẩm
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -64,7 +64,7 @@ export default function ProductStatistics() {
       [name]: value,
     });
   };
-
+  //lưu sản phẩm
   const handleSave = async () => {
     try {
       if (editProduct) {
@@ -72,7 +72,7 @@ export default function ProductStatistics() {
           `http://localhost:3000/allfood/${editProduct.id}`,
           formData
         );
-        setProducts(
+        setProducts(  //cập nhật sản phẩm sau khi chỉnh sửa
           products.map((p) =>
             p.id === editProduct.id ? { ...formData, id: editProduct.id } : p
           )
@@ -89,9 +89,9 @@ export default function ProductStatistics() {
     } catch (error) {
       console.error("Error saving product", error);
     }
-  };
-
-  const handlePageChange = (pageNumber) => {
+  };  
+  //chuyển trang
+  const handlePageChange = (pageNumber) => { //
     setCurrentPage(pageNumber);
   };
 

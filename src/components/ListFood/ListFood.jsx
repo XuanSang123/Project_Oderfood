@@ -18,7 +18,7 @@ export default function ListFood() {
   const [searchKeyword, setSearchKeyword] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(null);
   const dispatch = useDispatch();
-
+  //danh sách thành phố và danh mục
   const cityOptions = [
     { value: "TPHCM", label: "TP.HCM" },
     { value: "HN", label: "Hà Nội" },
@@ -28,7 +28,7 @@ export default function ListFood() {
     { value: "BH", label: "Biên Hòa" },
     { value: "NT", label: "Nha Trang" },
   ];
-
+  //danh sách danh mục
   const categoryOptions = [
     { value: "viet", label: "Món Việt" },
     { value: "asian", label: "Món Á" },
@@ -37,12 +37,11 @@ export default function ListFood() {
     { value: "japanese", label: "Món Nhật" },
     { value: "dessert", label: "Tráng Miệng" },
   ];
-
+  //lấy danh sách món ăn từ server
   useEffect(() => {
     const fetchListFood = async () => {
       try {
         const { data } = await foodApi.getListFood();
-        // Extract city from address and add to each food item
         const updatedData = data.map((food) => {
           const city = extractCityFromAddress(food.address);
           return { ...food, city };
@@ -55,7 +54,7 @@ export default function ListFood() {
     };
     fetchListFood();
   }, []);
-
+  //lấy mã thành phố từ địa chỉ
   const extractCityFromAddress = (address) => {
     const cities = {
       "TP. HCM": "TPHCM",
@@ -66,14 +65,16 @@ export default function ListFood() {
       "Biên Hòa": "BH",
       "Nha Trang": "NT",
     };
-    for (const [cityName, cityCode] of Object.entries(cities)) {
-      if (address.includes(cityName)) {
-        return cityCode;
+  
+    for (const cityName in cities) { // Duyệt qua các tên thành phố
+      if (address.includes(cityName)) { // Nếu địa chỉ chứa tên thành phố
+        return cities[cityName]; // Trả về mã thành phố tương ứng
       }
     }
-    return null;
+    return null; // Trả về null nếu không tìm thấy
   };
-
+  
+  //lọc món ăn theo thành phố, danh mục và từ khóa tìm kiếm
   useEffect(() => {
     const handleSearch = () => {
       const filtered = foods.filter((food) => {
@@ -87,7 +88,7 @@ export default function ListFood() {
         return matchesCity && matchesCategory && matchesKeyword;
       });
       setFilteredFoods(filtered);
-      setCurrentPage(1); // Reset page to 1 when filters change
+      setCurrentPage(1); // Reset trang về trang 1 khi search
     };
     handleSearch();
   }, [selectedCity, searchKeyword, selectedCategory, foods]);
@@ -96,10 +97,10 @@ export default function ListFood() {
     dispatch(addToCart(food));
   };
 
-  // Get current foods
-  const indexOfLastFood = currentPage * foodsPerPage;
-  const indexOfFirstFood = indexOfLastFood - foodsPerPage;
-  const currentFoods = filteredFoods.slice(indexOfFirstFood, indexOfLastFood);
+  //lấy món ăn của trang hiện tại
+  const indexOfLastFood = currentPage * foodsPerPage;//tính toán một trang có bao nhiêu món ăn
+  const indexOfFirstFood = indexOfLastFood - foodsPerPage;//tính toán món ăn đầu tiên của trang
+  const currentFoods = filteredFoods.slice(indexOfFirstFood, indexOfLastFood);//lấy ra món ăn của trang hiện tại
 
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);

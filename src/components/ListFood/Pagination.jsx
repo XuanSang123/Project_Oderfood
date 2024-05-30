@@ -1,10 +1,8 @@
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
-    const pageNumbers = [];
-
-    for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+    const pageNumbers = [];//tạo mang rỗng để chứa số trang
+    for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {//dùng vòng lặp để tạo số trang, Math.ceil để làm tròn số trang
         pageNumbers.push(i);
     }
-
     return (
         <nav>
             <ul className="pagination">

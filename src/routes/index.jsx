@@ -11,6 +11,10 @@ import Login from "../Login/Login";
 import Register from "../Resgister/Register";
 import Dashboard from "../Dashboard/Dashboard";
 import Cart from "../components/Cart/Cart";
+import Contact from "../nav/Contact/Contact";
+import ProductStatistics from '../Dashboard/ProductStatistics/ProductStatistics'
+import UserStatistics from '../Dashboard/UserStatistics/UserStatistics'
+import PendingOrders from '../Dashboard/PendingOrders/PendingOrders'
 
 export default function Index() {
   return (
@@ -28,6 +32,10 @@ export default function Index() {
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/productstatistics" element={<ProductStatistics />} />
+        <Route path="/userstatistics" element={<UserStatistics />} />
+        <Route path="/pendingorders" element={<PendingOrders />} />
       </Routes>
     </BrowserRouter>
   );
