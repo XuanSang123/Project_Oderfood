@@ -3,25 +3,43 @@ import "./PendingOrders.css";
 
 const PendingOrders = () => {
   const [orders, setOrders] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 3;
+  const totalPages = Math.ceil(orders.length / itemsPerPage);
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   useEffect(() => {
     const ordersData = JSON.parse(localStorage.getItem("orders")) || [];
     setOrders(ordersData);
   }, []);
 
+  const indexEnd = itemsPerPage * currentPage;
+  const indexStart = indexEnd - itemsPerPage;
+  const currentOrders = orders.slice(indexStart, indexEnd);
+  const pageNumbers = [];
+  for (let i = 1; i <= totalPages; i++) {
+    pageNumbers.push(i);
+  }
   return (
     <>
       <div id="pending-orders">
         <h2>Quản lý đơn hàng</h2>
         <div className="searchOrder">
-          <input type="text" placeholder="Search order" />
+          <input 
+          type="text" 
+          placeholder="Search order" 
+          />
           <button>Search</button>
           <button>Sắp xếp</button>
         </div>
         <div className="pagination">
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
+          {pageNumbers.map((page) => (
+            <button key={page} onClick={() => handlePageChange(page)}>
+              {page}
+            </button>
+          ))}
         </div>
       </div>
       <div id="pending-orders-table">
@@ -36,10 +54,10 @@ const PendingOrders = () => {
             </tr>
           </thead>
           <tbody>
-            {orders.length > 0 ? (
-              orders.map((order, index) => (
+            {currentOrders.length > 0 ? (
+              currentOrders.map((order, index) => (
                 <tr key={index}>
-                  <td>{index + 1}</td>
+                  <td>{indexStart + index + 1}</td>
                   <td>{order.items.map((item) => item.name).join(", ")}</td>
                   <td>{order.name}</td>
                   <td>{order.address}</td>
