@@ -86,3 +86,28 @@
 .page-link:hover {
     background-color: #0056b3;
 }
+
+.advanced{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.advance-input{
+  display: flex;
+  gap: 10px;
+}
+.advance-input input{
+  width: 200px;
+  height: 30px;
+}
+.advance-input button{
+  width: 100px;
+  height: 35px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}

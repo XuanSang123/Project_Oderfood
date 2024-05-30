@@ -1,34 +1,3 @@
-// import React from 'react'
-// import {Link} from 'react-router-dom'
-// import './Login.css'
-// export default function Login() {
-//   const handleSubmit = (e) => {
-//     e.preventDefault()
-//     e.target.reset()
-//     //kiểm tra đăng nhập,nếu đăng nhập thành công thì chuyển hướng đến trang dashboard
-//     //nếu đăng nhập admin thì chuyển hướng đến trang admin
-//     //nếu đăng nhập user thì chuyển hướng đến trang user
-//     //nếu đăng nhập thất bại thì hiển thị thông báo lỗi
-//     //nếu đăng nhập thành công thì lưu thông tin đăng nhập vào localStorage
-//     //nếu đăng nhập thất bại thì hiển thị thông báo lỗi
-//     //viết code nào
-
-//   }
-//   return (
-//     <div id='login'>
-//         <h1>Login</h1>
-//         <form onSubmit={handleSubmit}>
-//             <input type='text' placeholder='Username' />
-//             <input type='password' placeholder='Password' />
-//             <div>
-//               <button type='submit'>Đăng nhập</button>
-//               <Link to={'/register'}>Bạn đã có tài khoản chưa ?</Link>
-//             </div>
-//         </form>
-//     </div>
-//   )
-// }
-import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
@@ -50,10 +19,6 @@ export default function Login() {
     // Tao object errors
     const errors = {};
     // Check email khong rong
-
-    if (values.email == "admin" && values.password == "admin") {
-      navigate("/dashboard");
-    }
 
     if (values.email == "admin" && values.password == "admin") {
       navigate("/dashboard");
@@ -93,38 +58,12 @@ export default function Login() {
 
         // Dispatch de set isLogin === true
         dispatch(login());
-
         navigate("/");
-        // window.location.href("/login");
       } catch (error) {
         console.log(error);
       }
     },
   });
-
-  // const handleLoginSubmit = (event) => {
-  //   event.preventDefault();
-  //   console.log(event);
-  //   const username = event.target.elements.username.value;
-  //   const password = event.target.elements.password.value;
-
-  //   // Kiểm tra logic đăng nhập
-  //   if (username === "admin" && password === "adminPassword") {
-  //     // Đăng nhập thành công với quyền admin
-  //     localStorage.setItem("userType", "admin");
-  //     // Chuyển hướng đến trang admin
-  //     window.location.href = "/dashboard";
-  //   } else if (username === "user" && password === "userPassword") {
-  //     // Đăng nhập thành công với quyền user
-  //     localStorage.setItem("userType", "user");
-  //     // Chuyển hướng đến trang user
-  //     window.location.href = "/user";
-  //   } else {
-  //     // Đăng nhập thất bại
-  //     alert("Tên đăng nhập hoặc mật khẩu không chính xác");
-  //   }
-  // };
-
   return (
     <>
       <Header />

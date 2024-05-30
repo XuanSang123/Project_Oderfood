@@ -1,3 +1,26 @@
 .details{
     margin-bottom: 50px;
 }
+.grand-total{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+}
+.grand-total button{
+    width: 100px;
+    height: 30px;
+    color: #4781c3;
+    background-color: white;
+    border: 1px solid #4781c3;
+    border-radius: 5px
+}
+.grand-total button:hover{
+    background-color: #de7565;
+    color: white;
+}
+.btn-quantity{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
