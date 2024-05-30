@@ -72,9 +72,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/slices/authReducer";
+import { getToken } from "../../utilities/localStorageUtil";
 
 export default function Header() {
   const [showUserInfo, setShowUserInfo] = useState(false);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLogin = useSelector((state) => state.auth.isLogin);
   const cartItems = useSelector((state) => state.cart.items);

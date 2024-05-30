@@ -171,16 +171,6 @@
       "categories": "vietfood"
     },
     {
-      "id": "p7q8r9",
-      "image": "./public/VietFood/bun-bo-hue.jpg",
-      "name": "Bún Bò Huế",
-      "restaurant": "Quán STU",
-      "address": "369 Phan Xích Long, Phú Nhuận, TP. HCM",
-      "price": 45000,
-      "review": "Bún bò Huế với thịt bò, bún mềm, nước dùng đậm đà, ăn kèm rau sống.",
-      "categories": "vietfood"
-    },
-    {
       "id": "s1t2u3",
       "image": "./public/VietFood/pho-ga-ha-noi-ngon.jpg",
       "name": "Phở Gà",
@@ -583,26 +573,6 @@
       "address": "789 Đường E, Phường F, Quận 3, TP. HCM"
     },
     {
-      "email": "maixuansang1123@gmail.cdm",
-      "password": "$2a$10$wSsNjk.e6.dPeFfRFckAIeq0baxjhPIER4Tar/1vglpitDss8011.",
-      "confirmPassword": "123456789",
-      "phoneNumber": "0964417590",
-      "firstName": "dadsasdadsasd",
-      "lastName": "asdasdasd",
-      "id": 7,
-      "address": "101 Đường G, Phường H, Quận 4, TP. HCM"
-    },
-    {
-      "email": "maixuansang1123@gmail.cdm.vn",
-      "password": "$2a$10$7ugRO.qYlTWaUj32ajRcNuCo49Hb77P9b60Xir6aCcYjpKQMUSljW",
-      "confirmPassword": "123456789",
-      "phoneNumber": "0964417590",
-      "firstName": "dadsasdadsasd",
-      "lastName": "asdasdasd",
-      "id": 8,
-      "address": "202 Đường I, Phường J, Quận 5, TP. HCM"
-    },
-    {
       "email": "maixuansang1123@gmail.rrm",
       "password": "$2a$10$pODRtE3bBiORE5kcSHYhBesA6kl2f9iuEpeEwq5f0hyIROERnEC5W",
       "confirmPassword": "123456789",
@@ -688,15 +658,6 @@
       "lastName": "sangggg",
       "id": 19,
       "address": "1111 Đường AA, Phường BB, Quận Gò Vấp, TP. HCM"
-    },
-    {
-      "email": "admin@gmail.qaz",
-      "password": "$2a$10$MbragZTtlF6EcBOOstRdwupD6SpGTIs3LaKlibRSviv02/08MRUIO",
-      "phoneNumber": "098102933",
-      "firstName": "Bao",
-      "lastName": "sangggg",
-      "id": 20,
-      "address": "1212 Đường CC, Phường DD, Quận Phú Nhuận, TP. HCM"
     }
   ]
 }

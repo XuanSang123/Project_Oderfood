@@ -7,6 +7,7 @@ import authApi from "../api/authApi";
 import Header from "../../src/components/Header/Header";
 import Navigation from "../../src/components/Navigation/Navigation";
 import Footer from "../../src/components/Footer/Footer";
+import { useState } from "react";
 
 // sử dụng thư viện formmik
 export default function Login() {
@@ -31,7 +32,7 @@ export default function Login() {
       errors.email = "Day khong phai la email, vui long nhap lai";
     } else if (!values.password) {
       errors.password = "Yeu cau nhap password!";
-    } else if (values.password.length < 4) {
+    } else if (values.password.length < 8) {
       errors.password = "Yeu cau nhap password lon hon 4 ky tu!";
     }
 
