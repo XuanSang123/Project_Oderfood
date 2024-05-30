@@ -2,13 +2,17 @@ import { useState } from "react";
 import "./Header.css";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faUser,faCartShopping,faRightFromBracket,} from "@fortawesome/free-solid-svg-icons";
+import {
+  faUser,
+  faCartShopping,
+  faRightFromBracket,
+} from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/slices/authReducer";
 import { getToken } from "../../utilities/localStorageUtil";
 
 export default function Header() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [showUserInfo, setShowUserInfo] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
