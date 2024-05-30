@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { adjustQuantity, removeFromCart } from "../../redux/slices/cartReducer";
 import { moneyFormat } from "../../utilities/stringUtil";
+import './Cart.css'
 
 export default function CartItem({ item }) {
   const dispatch = useDispatch();
@@ -25,7 +26,8 @@ export default function CartItem({ item }) {
       <td data-label="Tên Sản Phẩm">{item.name}</td>
       <td data-label="Giá">{moneyFormat(item.price)}</td>
       <td data-label="Số Lượng">
-        <button
+       <div className="btn-quantity">
+         <button
           onClick={() => handleAdjustQuantity(item.id, item.quantity - 1)}
         >
           -
@@ -36,6 +38,7 @@ export default function CartItem({ item }) {
         >
           +
         </button>
+       </div>
       </td>
       <td data-label="Thành Tiền">{moneyFormat(item.price * item.quantity)}</td>
       <td data-label="Hành Động">
