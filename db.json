@@ -676,12 +676,25 @@
       "id": 19
     },
     {
-      "email": "admin@gmail.qaz",
-      "password": "$2a$10$MbragZTtlF6EcBOOstRdwupD6SpGTIs3LaKlibRSviv02/08MRUIO",
-      "phoneNumber": "098102933",
-      "firstName": "Bao",
-      "lastName": "sangggg",
+      "email": "admin@mail.com",
+      "password": "$2a$10$lZ8LeEbx11vfzeXYwKGTmOdXwaJQMUoV.bbzqZC8YyLWPFmv1lHQm",
+      "confirmPassword": "11111111",
+      "phoneNumber": "0964417590",
+      "firstName": "dadsasdadsasd",
+      "lastName": "asdasdasd",
       "id": 20
+    },
+    {
+      "email": "maixuansang1123@gmail.com",
+      "password": "$2a$10$6XsrMFmxgRflzSPNTc9FVeM.zVU6pTt2Chkux0u1JtlDhLLIw5CYe",
+      "confirmPassword": "11111111",
+      "phoneNumber": "0964417590",
+      "firstName": "dadsasdadsasd",
+      "lastName": "hahahahahahaha",
+      "id": 21
     }
+  ],
+  "orders": [
+    {}
   ]
 }

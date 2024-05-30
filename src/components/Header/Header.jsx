@@ -1,6 +1,5 @@
-import React, { useState } from "react";
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
@@ -12,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/slices/authReducer";
 
 export default function Header() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLogin = useSelector((state) => state.auth.isLogin);
   const cartItems = useSelector((state) => state.cart.items);
@@ -25,6 +25,7 @@ export default function Header() {
     localStorage.removeItem("TOKEN");
     // Set state isLogin ==== false
     dispatch(logout());
+    navigate("/login");
   };
 
   return (
@@ -53,6 +54,15 @@ export default function Header() {
           {totalQuantity}
         </Link>
       </div>
+      {isLogin && (
+        <div className="user-info">
+          <Link to="/userInfo">Thông tin cá nhân</Link>
+          <Link to="/cart">Đơn hàng</Link>
+          <Link to="/login" onClick={handleSingout}>
+            Đăng xuất{" "}
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

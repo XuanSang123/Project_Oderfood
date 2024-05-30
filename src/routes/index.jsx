@@ -5,7 +5,7 @@ import EuropeanFood from "../nav/EuropeanFood/EuropeanFood";
 import KoreanFood from "../nav/KoreanFood/KoreanFood";
 import JapaneseFood from "../nav/JapaneseFood/JapaneseFood";
 import DessertsFood from "../nav/DessertsFood/DessertsFood";
-// import Details from "../components/Details/Details";
+import UserInfo from "../components/UserInfo/UserInfo";
 import ListFood from "../components/ListFood/ListFood";
 import Login from "../Login/Login";
 import Register from "../Resgister/Register";
@@ -23,7 +23,7 @@ export default function Index() {
         <Route path="/mon-han" element={<KoreanFood />} />
         <Route path="/mon-nhat" element={<JapaneseFood />} />
         <Route path="/trang-mieng" element={<DessertsFood />} />
-        {/* <Route path="/details/:id" element={<Details />} /> */}
+        <Route path="/userInfo" element={<UserInfo />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />

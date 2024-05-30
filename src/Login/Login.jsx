@@ -1,34 +1,4 @@
-// import React from 'react'
-// import {Link} from 'react-router-dom'
-// import './Login.css'
-// export default function Login() {
-//   const handleSubmit = (e) => {
-//     e.preventDefault()
-//     e.target.reset()
-//     //kiểm tra đăng nhập,nếu đăng nhập thành công thì chuyển hướng đến trang dashboard
-//     //nếu đăng nhập admin thì chuyển hướng đến trang admin
-//     //nếu đăng nhập user thì chuyển hướng đến trang user
-//     //nếu đăng nhập thất bại thì hiển thị thông báo lỗi
-//     //nếu đăng nhập thành công thì lưu thông tin đăng nhập vào localStorage
-//     //nếu đăng nhập thất bại thì hiển thị thông báo lỗi
-//     //viết code nào
-
-//   }
-//   return (
-//     <div id='login'>
-//         <h1>Login</h1>
-//         <form onSubmit={handleSubmit}>
-//             <input type='text' placeholder='Username' />
-//             <input type='password' placeholder='Password' />
-//             <div>
-//               <button type='submit'>Đăng nhập</button>
-//               <Link to={'/register'}>Bạn đã có tài khoản chưa ?</Link>
-//             </div>
-//         </form>
-//     </div>
-//   )
-// }
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
@@ -43,6 +13,7 @@ import Footer from "../../src/components/Footer/Footer";
 export default function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [displayErros, setDisplayErros] = useState("");
 
   // See more: https://formik.org/docs/guides/validation
   // formik validate function
@@ -51,27 +22,36 @@ export default function Login() {
     const errors = {};
     // Check email khong rong
 
-    if (values.email == "admin" && values.password == "admin") {
-      navigate("/dashboard");
-    }
+    // if (values.email == "admin" && values.password == "admin") {
+    //   navigate("/dashboard");
+    // }
 
     if (values.email == "admin" && values.password == "admin") {
       navigate("/dashboard");
-    }
-
-    if (!values.email) {
+    } else if (!values.email) {
       errors.email = "Yeu cau nhap email!";
     } else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email) // check dinh dang email
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
     ) {
       errors.email = "Day khong phai la email, vui long nhap lai";
-    }
-
-    if (!values.password) {
+    } else if (!values.password) {
       errors.password = "Yeu cau nhap password!";
     } else if (values.password.length < 4) {
       errors.password = "Yeu cau nhap password lon hon 4 ky tu!";
     }
+
+    // if (!values.email) {
+    //   errors.email = "Yeu cau nhap email!";
+    // } else if (
+    //   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email) // check dinh dang email
+    // ) {
+    //   errors.email = "Day khong phai la email, vui long nhap lai";
+    // }
+    // if (!values.password) {
+    //   errors.password = "Yeu cau nhap password!";
+    // } else if (values.password.length < 4) {
+    //   errors.password = "Yeu cau nhap password lon hon 4 ky tu!";
+    // }
     return errors;
   };
 
@@ -97,7 +77,8 @@ export default function Login() {
         navigate("/");
         // window.location.href("/login");
       } catch (error) {
-        console.log(error);
+        console.log(error.response.data);
+        setDisplayErros(error.response.data);
       }
     },
   });
@@ -156,6 +137,7 @@ export default function Login() {
           )}
           <div>
             <button type="submit">Đăng nhập</button>
+            <p className="error">{displayErros}</p>
             <Link to={"/register"}>Bạn đã có tài khoản chưa ?</Link>
           </div>
         </form>

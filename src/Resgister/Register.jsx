@@ -3,31 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
 import authApi from "../api/authApi";
 import { useFormik } from "formik";
+import Header from "../../src/components/Header/Header";
+import Navigation from "../../src/components/Navigation/Navigation";
+import Footer from "../../src/components/Footer/Footer";
 
 export default function Register() {
-  // const [formData, setFormData] = useState({
-  //   username: "",
-  //   password: "",
-  //   confirmPassword: "",
-  //   email: "",
-  //   phoneNumber: "",
-  // });
-  // const [errors, setErrors] = useState({});
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   e.target.reset();
-  // };
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormData({
-  //     ...formData,
-  //     [name]: value,
-  //   });
-  // };
-  //
-  // See more: https://formik.org/docs/guides/validation
-  // formik validate function
-
   const [errorMess, setErrorMess] = useState("");
   const navigate = useNavigate();
   const validate = (values) => {
@@ -40,26 +20,42 @@ export default function Register() {
       !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email) // check dinh dang email
     ) {
       errors.email = "vui long nhap dung dinh dang email";
-    }
-    if (!values.password) {
+    } else if (!values.password) {
       errors.password = "password khong duoc de trong";
     } else if (values.password.length < 8) {
       errors.password = "Yeu cau nhap password lon hon 8 ky tu!";
-    }
-    if (!(values.password === values.confirmPassword)) {
+    } else if (!(values.password === values.confirmPassword)) {
       errors.confirmPassword = "vui long nhap dung password";
-    }
-    if (!values.phoneNumber) {
+    } else if (!values.phoneNumber) {
       errors.phoneNumber = "Number khong duoc de trong";
     } else if (!/(84|0[3|5|7|8|9])+([0-9]{8})\b/g.test(values.phoneNumber)) {
       errors.phoneNumber = "phai la so ";
-    }
-    if (!values.firstName) {
+    } else if (!values.firstName) {
       errors.firstName = "firstname khong duoc de trong";
-    }
-    if (!values.lastName) {
+    } else if (!values.lastName) {
       errors.lastName = "lastname khong duoc de trong";
     }
+
+    //  if (!values.password) {
+    //   errors.password = "password khong duoc de trong";
+    // } else if (values.password.length < 8) {
+    //   errors.password = "Yeu cau nhap password lon hon 8 ky tu!";
+    // }
+
+    // if (!(values.password === values.confirmPassword)) {
+    //   errors.confirmPassword = "vui long nhap dung password";
+    // }
+    // if (!values.phoneNumber) {
+    //   errors.phoneNumber = "Number khong duoc de trong";
+    // } else if (!/(84|0[3|5|7|8|9])+([0-9]{8})\b/g.test(values.phoneNumber)) {
+    //   errors.phoneNumber = "phai la so ";
+    // }
+    // if (!values.firstName) {
+    //   errors.firstName = "firstname khong duoc de trong";
+    // }
+    // if (!values.lastName) {
+    //   errors.lastName = "lastname khong duoc de trong";
+    // }
 
     return errors;
   };
@@ -91,6 +87,8 @@ export default function Register() {
 
   return (
     <>
+      <Header />
+      <Navigation />
       <div id="register">
         <h1>Register</h1>
         <form onSubmit={formik.handleSubmit}>
@@ -160,7 +158,8 @@ export default function Register() {
             <Link to="/login">Bạn đã có tài khoản</Link>
           </div>
         </form>
-      </div>
+      </div>{" "}
+      <Footer />
     </>
   );
 }
