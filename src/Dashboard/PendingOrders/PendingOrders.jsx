@@ -1,29 +1,30 @@
-import { useEffect, useState } from 'react';
-import './PendingOrders.css';
+import { useEffect, useState } from "react";
+import "./PendingOrders.css";
 
 const PendingOrders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    const cartData = JSON.parse(localStorage.getItem('cart')) || [];
-    setOrders(cartData);
+    const ordersData = JSON.parse(localStorage.getItem("orders")) || [];
+    setOrders(ordersData);
   }, []);
-      return (
+
+  return (
     <>
-      <div id='pending-orders'>
+      <div id="pending-orders">
         <h2>Quản lý đơn hàng</h2>
-        <div className='searchOrder'>
-          <input type='text' placeholder='Search order' />
+        <div className="searchOrder">
+          <input type="text" placeholder="Search order" />
           <button>Search</button>
           <button>Sắp xếp</button>
         </div>
-        <div className='pagination'>
+        <div className="pagination">
           <button>1</button>
           <button>2</button>
           <button>3</button>
         </div>
       </div>
-      <div id='pending-orders-table'>
+      <div id="pending-orders-table">
         <table>
           <thead>
             <tr>
@@ -39,14 +40,14 @@ const PendingOrders = () => {
               orders.map((order, index) => (
                 <tr key={index}>
                   <td>{index + 1}</td>
-                  <td>{order.items.map((item) => item.name).join(', ')}</td>
+                  <td>{order.items.map((item) => item.name).join(", ")}</td>
                   <td>{order.name}</td>
                   <td>{order.address}</td>
                   <td>
                     <select>
-                      <option value='pending'>Đang chờ</option>
-                      <option value='shipping'>Đang giao</option>
-                      <option value='delivered'>Đã giao</option>
+                      <option value="pending">Đang chờ</option>
+                      <option value="shipping">Đang giao</option>
+                      <option value="delivered">Đã giao</option>
                     </select>
                     <button>Xoá</button>
                   </td>

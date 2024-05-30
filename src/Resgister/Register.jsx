@@ -34,6 +34,8 @@ export default function Register() {
       errors.firstName = "firstname khong duoc de trong";
     } else if (!values.lastName) {
       errors.lastName = "lastname khong duoc de trong";
+    } else if (!values.adress) {
+      errors.adress = "adress khong duoc de trong";
     }
 
     //  if (!values.password) {
@@ -69,6 +71,7 @@ export default function Register() {
       phoneNumber: "",
       firstName: "",
       lastName: "",
+      adress: "",
     },
     // Ham validate
     validate,
@@ -152,6 +155,13 @@ export default function Register() {
           {formik.errors.lastName && (
             <span className="error">{formik.errors.lastName}</span>
           )}
+          <input
+            type="text"
+            name="adress"
+            placeholder="adress"
+            onChange={formik.handleChange}
+            value={formik.values.adress}
+          />
           {errorMess && <span className="error">{errorMess}</span>}
           <div>
             <button type="submit">Register</button>

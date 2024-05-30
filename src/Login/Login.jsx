@@ -1,19 +1,27 @@
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/slices/authReducer";
 import "./Login.css";
 import authApi from "../api/authApi";
 import Header from "../../src/components/Header/Header";
 import Navigation from "../../src/components/Navigation/Navigation";
 import Footer from "../../src/components/Footer/Footer";
-import { useState } from "react";
 
 // sử dụng thư viện formmik
 export default function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const isLogged = useSelector((state) => state.auth.isLogged);
   const [displayErros, setDisplayErros] = useState("");
+
+  // Khong cho user vao lai trang login khi da dang nhap
+  useEffect(() => {
+    if (isLogged) {
+      navigate("/");
+    }
+  }, []);
 
   // See more: https://formik.org/docs/guides/validation
   // formik validate function
@@ -22,9 +30,7 @@ export default function Login() {
     const errors = {};
     // Check email khong rong
 
-    if (values.email == "admin" && values.password == "admin") {
-      navigate("/dashboard");
-    } else if (!values.email) {
+    if (!values.email) {
       errors.email = "Yeu cau nhap email!";
     } else if (
       !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
@@ -32,7 +38,7 @@ export default function Login() {
       errors.email = "Day khong phai la email, vui long nhap lai";
     } else if (!values.password) {
       errors.password = "Yeu cau nhap password!";
-    } else if (values.password.length < 4) {
+    } else if (values.password.length < 8) {
       errors.password = "Yeu cau nhap password lon hon 4 ky tu!";
     }
 
@@ -65,17 +71,27 @@ export default function Login() {
         const { data } = await authApi.userLogin(values); // Call API de dang nhap
         // Set localStorage
         localStorage.setItem("TOKEN", data.accessToken);
-        localStorage.setItem("USER", data.user.email);
+        localStorage.setItem(
+          "USER",
+          JSON.stringify({ email: data.user.email, id: data.user.id })
+        );
 
         // Dispatch de set isLogin === true
         dispatch(login());
-        navigate("/");
+
+        const isAdmin = data?.user?.isAdmin; // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
+        if (isAdmin) {
+          navigate("/dashboard");
+        } else {
+          navigate("/");
+        }
       } catch (error) {
         console.log(error.response.data);
         setDisplayErros(error.response.data);
       }
     },
   });
+
   return (
     <>
       <Header />

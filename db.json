@@ -171,16 +171,6 @@
       "categories": "vietfood"
     },
     {
-      "id": "p7q8r9",
-      "image": "./public/VietFood/bun-bo-hue.jpg",
-      "name": "Bún Bò Huế",
-      "restaurant": "Quán STU",
-      "address": "369 Phan Xích Long, Phú Nhuận, TP. HCM",
-      "price": 45000,
-      "review": "Bún bò Huế với thịt bò, bún mềm, nước dùng đậm đà, ăn kèm rau sống.",
-      "categories": "vietfood"
-    },
-    {
       "id": "s1t2u3",
       "image": "./public/VietFood/pho-ga-ha-noi-ngon.jpg",
       "name": "Phở Gà",
@@ -551,152 +541,204 @@
       "id": "uJtUCvK"
     }
   ],
+  "orders": [
+    {
+      "items": [
+        {
+          "id": "t4u5v6",
+          "image": "./public/AsiaFood/tom-yum.jpg",
+          "name": "Tom Yum",
+          "restaurant": "Quán Thái Hương",
+          "address": "58 Nguyễn Huệ, Quận 1, TP. HCM",
+          "price": 65000,
+          "review": "Tom Yum cay nồng, hương vị đặc trưng của Thái Lan.",
+          "categories": "asiafood",
+          "quantity": 1
+        },
+        {
+          "id": "w7x8y9",
+          "image": "./public/AsiaFood/nari-goreng.jpg",
+          "name": "Nasi Goreng",
+          "restaurant": "Quán Indo 123",
+          "address": "789 Cách Mạng Tháng Tám, Quận 3, TP. HCM",
+          "price": 50000,
+          "review": "Nasi Goreng đậm đà, hương vị Indonesia.",
+          "categories": "asiafood",
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 115000,
+      "id": 1
+    },
+    {
+      "items": [
+        {
+          "id": "j1k2l3",
+          "image": "./public/JapaneseFood/Gyudon.jpg",
+          "name": "Gyudon",
+          "restaurant": "Gyudon Spot",
+          "address": "101 Nguyễn Thái Học, Quận Tân Bình, TP. HCM",
+          "price": 100000,
+          "review": "Gyudon thơm ngon, thịt bò mềm, trứng ốp mặt.",
+          "categories": "japanesefood",
+          "quantity": 2
+        },
+        {
+          "id": "g7h8i9",
+          "image": "./public/JapaneseFood/Udon.jpg",
+          "name": "Udon",
+          "restaurant": "Udon Corner",
+          "address": "789 Nguyễn Trãi, Quận 5, TP. HCM",
+          "price": 120000,
+          "review": "Udon nấu chín đúng điểm, mì dai, nước dùng thơm.",
+          "categories": "japanesefood",
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 320000,
+      "id": 2
+    },
+    {
+      "items": [
+        {
+          "id": "g7h8i9",
+          "image": "./public/JapaneseFood/Udon.jpg",
+          "name": "Udon",
+          "restaurant": "Udon Corner",
+          "address": "789 Nguyễn Trãi, Quận 5, TP. HCM",
+          "price": 120000,
+          "review": "Udon nấu chín đúng điểm, mì dai, nước dùng thơm.",
+          "categories": "japanesefood",
+          "quantity": 1
+        },
+        {
+          "id": "d4e5f6",
+          "image": "./public/JapaneseFood/Ramen.jpg",
+          "name": "Ramen",
+          "restaurant": "Ramen House",
+          "address": "456 Hai Bà Trưng, Quận 3, TP. HCM",
+          "price": 150000,
+          "review": "Ramen nước dùng đậm đà, mì mềm, topping hấp dẫn.",
+          "categories": "japanesefood",
+          "quantity": 1
+        },
+        {
+          "id": "j1k2l3",
+          "image": "./public/JapaneseFood/Gyudon.jpg",
+          "name": "Gyudon",
+          "restaurant": "Gyudon Spot",
+          "address": "101 Nguyễn Thái Học, Quận Tân Bình, TP. HCM",
+          "price": 100000,
+          "review": "Gyudon thơm ngon, thịt bò mềm, trứng ốp mặt.",
+          "categories": "japanesefood",
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 370000,
+      "totalQuantity": 0,
+      "id": 3
+    },
+    {
+      "items": [
+        {
+          "id": "7g8h9i",
+          "image": "./public/com-tam-ba-ghien-2-4.jpg",
+          "name": "Cơm Tấm",
+          "restaurant": "Cơm Tấm Ba Ghiền",
+          "address": "84 Đặng Văn Ngữ, Phú Nhuận, TP. HCM",
+          "price": 50000,
+          "review": "Cơm tấm với sườn nướng thơm ngon, nước mắm chua ngọt hấp dẫn.",
+          "categories": "foods",
+          "city": "TPHCM",
+          "quantity": 1
+        },
+        {
+          "id": "0j1k2l",
+          "image": "./public/bun-cha-huong-lien-lang-ha1.jpg",
+          "name": "Bún Chả",
+          "restaurant": "Bún Chả Hương Liên",
+          "address": "24 Lê Văn Hưu, Hai Bà Trưng, Hà Nội",
+          "price": 45000,
+          "review": "Chả nướng thơm phức, bún tươi và nước chấm vừa miệng.",
+          "categories": "foods",
+          "city": "HN",
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 95000,
+      "totalQuantity": 0,
+      "id": 4
+    },
+    {
+      "items": [
+        {
+          "id": "7g8h9i",
+          "image": "./public/com-tam-ba-ghien-2-4.jpg",
+          "name": "Cơm Tấm",
+          "restaurant": "Cơm Tấm Ba Ghiền",
+          "address": "84 Đặng Văn Ngữ, Phú Nhuận, TP. HCM",
+          "price": 50000,
+          "review": "Cơm tấm với sườn nướng thơm ngon, nước mắm chua ngọt hấp dẫn.",
+          "categories": "foods",
+          "city": "TPHCM",
+          "quantity": 1
+        },
+        {
+          "id": "0j1k2l",
+          "image": "./public/bun-cha-huong-lien-lang-ha1.jpg",
+          "name": "Bún Chả",
+          "restaurant": "Bún Chả Hương Liên",
+          "address": "24 Lê Văn Hưu, Hai Bà Trưng, Hà Nội",
+          "price": 45000,
+          "review": "Chả nướng thơm phức, bún tươi và nước chấm vừa miệng.",
+          "categories": "foods",
+          "city": "HN",
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 95000,
+      "totalQuantity": 0,
+      "id": 5
+    }
+  ],
   "users": [
     {
-      "email": "maixuansang1123222@gmail.com",
-      "password": "$2a$10$3KW9TyOGPBksQfSNzy/iuO/3.SPDgcvF6MDu7TgWXDdrFgfWM5Tqu",
-      "confirmPassword": "123456789",
+      "email": "maixuansang1123@gmail.com",
+      "password": "$2a$10$uk2gVYCsbOU.Lou2hYr8H.pR9VBwHQNfkjWChCg64b93IVX3EqGsK",
       "phoneNumber": "0964417590",
       "firstName": "dadsasdadsasd",
       "lastName": "asdasdasd",
-      "id": 4,
-      "address": "123 Đường A, Phường B, Quận 1, TP. HCM"
+      "address": "1523 Le Van Khuong ",
+      "id": 5
     },
     {
-      "email": "maixuansang1123@gmail.cm",
-      "password": "$2a$10$1uS8.3BWwGZlZA2V8RrxV.1hvciANala.fhR6mqROWTlUDczRWL3i",
-      "confirmPassword": "123456789",
-      "phoneNumber": "0964417590",
-      "firstName": "dadsasdadsasd",
-      "lastName": "asdasdasd",
-      "id": 5,
-      "address": "456 Đường C, Phường D, Quận 2, TP. HCM"
-    },
-    {
-      "email": "maixuansang1123@gmail.cd",
-      "password": "$2a$10$/O91w9A70NHENgBbaoZzauw2wuE7Ys1UCeyJ8skt3LJlT5Iqx8v3K",
-      "confirmPassword": "123456789",
-      "phoneNumber": "0964417590",
-      "firstName": "dadsasdadsasd",
-      "lastName": "asdasdasd",
-      "id": 6,
-      "address": "789 Đường E, Phường F, Quận 3, TP. HCM"
-    },
-    {
-      "email": "maixuansang1123@gmail.cdm",
-      "password": "$2a$10$wSsNjk.e6.dPeFfRFckAIeq0baxjhPIER4Tar/1vglpitDss8011.",
-      "confirmPassword": "123456789",
-      "phoneNumber": "0964417590",
-      "firstName": "dadsasdadsasd",
-      "lastName": "asdasdasd",
-      "id": 7,
-      "address": "101 Đường G, Phường H, Quận 4, TP. HCM"
-    },
-    {
-      "email": "maixuansang1123@gmail.cdm.vn",
-      "password": "$2a$10$7ugRO.qYlTWaUj32ajRcNuCo49Hb77P9b60Xir6aCcYjpKQMUSljW",
-      "confirmPassword": "123456789",
-      "phoneNumber": "0964417590",
-      "firstName": "dadsasdadsasd",
-      "lastName": "asdasdasd",
-      "id": 8,
-      "address": "202 Đường I, Phường J, Quận 5, TP. HCM"
-    },
-    {
-      "email": "maixuansang1123@gmail.rrm",
-      "password": "$2a$10$pODRtE3bBiORE5kcSHYhBesA6kl2f9iuEpeEwq5f0hyIROERnEC5W",
-      "confirmPassword": "123456789",
-      "phoneNumber": "0964417590",
-      "firstName": "dadsasdadsasd",
-      "lastName": "Sang",
-      "id": 9,
-      "address": "303 Đường K, Phường L, Quận 6, TP. HCM"
-    },
-    {
-      "email": "maixuansang1123@gmail.rm",
-      "password": "$2a$10$9RxPoIcAZqZPTj0WjioZ6.Mj7Y9hQtAjl3Myh6t849tZYTQ51eWC6",
-      "confirmPassword": "123456789",
-      "phoneNumber": "0964417590",
-      "firstName": "dadsasdadsasd",
-      "lastName": "Sang",
-      "id": 10,
-      "address": "404 Đường M, Phường N, Quận 7, TP. HCM"
-    },
-    {
-      "email": "maixuansang1123@gmail.cx",
-      "password": "$2a$10$iFhF5k2DdP0zvITReBTnOODVUfDp1gpm0SYaenJDE6KWPR9eElCKy",
-      "confirmPassword": "123456789",
-      "phoneNumber": "0964417590",
-      "firstName": "dadsasdadsasd",
-      "lastName": "Sang",
-      "id": 11,
-      "address": "505 Đường O, Phường P, Quận 8, TP. HCM"
-    },
-    {
-      "email": "maixuansang1123@gmail.cl",
-      "password": "$2a$10$9axc279vr/cYkNpIOGoz3ObFPwjCzXkn9ZJYpPGIyBi6tsf7pKXLe",
-      "confirmPassword": "123456789",
-      "phoneNumber": "0964417590",
-      "firstName": "dadsasdadsasd",
-      "lastName": "Sang",
-      "id": 12,
-      "address": "606 Đường Q, Phường R, Quận 9, TP. HCM"
-    },
-    {
-      "email": "olivier@mail.cong",
-      "password": "$2a$10$l5qwS.JE/0YQMG2murNZ2.b2O9IlGrxSkzgL.yNGOmVfl/60K3l9.",
+      "email": "admin@gmail.com",
+      "password": "$2a$10$KQnEOTRnRCFCy/5HkgaOgOdEhcCglHoXqIQceUVLdUIGQKZKvnKcW",
       "phoneNumber": "098102933",
       "firstName": "Bao",
       "lastName": "Huynh",
-      "id": 14,
-      "address": "707 Đường S, Phường T, Quận 10, TP. HCM"
+      "isAdmin": true,
+      "id": 6,
+      "address": "456 Đường C, Phường D, Quận 2, TP. HCM"
     },
     {
-      "email": "maixuansang1123@gmail.ce",
-      "password": "$2a$10$yiqeCZC2WdtKmI8.2IvOi.kxUGQe1U94cvZheMxvmpna81cYoQeba",
-      "confirmPassword": "123456789",
+      "id": 7,
+      "firstName": "Sang",
+      "lastName": "Huynh",
+      "email": "user@gmail.com",
+      "phoneNumber": "098102933",
+      "address": "456 Đường C, Phường D, Quận 2, TP. HCM",
+      "password": "$2a$10$mtE445wqahQd23AGmHreaetfYx4y1uQr65PxEzhKQZTiaWrk870tC"
+    },
+    {
+      "email": "asd@gmail.com",
+      "password": "$2a$10$G9iTt9/9TD/wbdU62tbCa.CRC4pJdycIdRq82oSL91xW0qp2pyOga",
+      "confirmPassword": "11111111",
       "phoneNumber": "0964417590",
       "firstName": "dadsasdadsasd",
       "lastName": "asdasdasd",
-      "id": 16,
-      "address": "808 Đường U, Phường V, Quận 11, TP. HCM"
-    },
-    {
-      "email": "maixuansang1123@gmail.cf",
-      "password": "$2a$10$PY16ovqO.by5IgDyWvdi.ODujmsWKm9V9A7oHztdkRKHZm7s7R2NC",
-      "confirmPassword": "123456789",
-      "phoneNumber": "0964417590",
-      "firstName": "dadsasdadsasd",
-      "lastName": "asdasdasd",
-      "id": 17,
-      "address": "909 Đường W, Phường X, Quận 12, TP. HCM"
-    },
-    {
-      "email": "admin@gmail.cz",
-      "password": "$2a$10$m.w57vzzTgjoPw6MdWOVQOQ1DkdATy1af.GB7Bz36XFbu/gkeYFE.",
-      "phoneNumber": "098102933",
-      "firstName": "Bao",
-      "lastName": "sangggg",
-      "id": 18,
-      "address": "1010 Đường Y, Phường Z, Quận Bình Thạnh, TP. HCM"
-    },
-    {
-      "email": "admin@gmail.cqz",
-      "password": "$2a$10$V77NqlpK4s7QWUziofNZi.lnsIpngRAStQgFietmUsPeypIIl3DPG",
-      "phoneNumber": "098102933",
-      "firstName": "Bao",
-      "lastName": "sangggg",
-      "id": 19,
-      "address": "1111 Đường AA, Phường BB, Quận Gò Vấp, TP. HCM"
-    },
-    {
-      "email": "admin@gmail.qaz",
-      "password": "$2a$10$MbragZTtlF6EcBOOstRdwupD6SpGTIs3LaKlibRSviv02/08MRUIO",
-      "phoneNumber": "098102933",
-      "firstName": "Bao",
-      "lastName": "sangggg",
-      "id": 20,
-      "address": "1212 Đường CC, Phường DD, Quận Phú Nhuận, TP. HCM"
+      "adress": "asd 11213",
+      "id": 8
     }
   ]
 }

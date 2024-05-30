@@ -33,6 +33,7 @@ const cartSlice = createSlice({
       }
     },
     adjustQuantity: (state, action) => {
+      console.log(state, "áda");
       const itemIndex = state.items.findIndex(
         (item) => item.id === action.payload.id
       );
@@ -54,5 +55,6 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, removeFromCart, adjustQuantity, clearCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, adjustQuantity, clearCart } =
+  cartSlice.actions;
 export default cartSlice.reducer;
