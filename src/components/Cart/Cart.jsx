@@ -17,20 +17,16 @@ export default function Cart() {
 
   // Handle payment
   const handlePayment = () => {
-    let payment = JSON.parse(localStorage.getItem("cart")) || [];
+    let payment = JSON.parse(localStorage.getItem("cart")) || [];//chuyển đổi payment thành mảng
     let data = {
       items: items,
       totalPrice: totalPrice,
       totalQuantity: totalQuantity,
     };
     payment.push(data);
-    localStorage.setItem("cart", JSON.stringify(payment));
+    localStorage.setItem("cart", JSON.stringify(payment));//chuyển đổi payment thành chuỗi
     alert("Thanh toán thành công");
-    
-    // Clear the cart in the Redux store
     dispatch(clearCart());
-    
-    // Navigate to home page
     navigate("/");
   };
 
