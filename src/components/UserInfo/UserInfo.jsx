@@ -1,26 +1,23 @@
 import { useState, useEffect } from "react";
+import Header from '../Header/Header'
+import Navigation from '../Navigation/Navigation'
+import Footer from '../Footer/Footer'
 import "./UserInfo.css";
 
 export default function UserProfile() {
+  //set thông tin user,nếu không có thông tin thì set rỗng
   const [userInfo, setUserInfo] = useState({
     firstName: "",
     lastName: "",
     email: "",
     phoneNumber: "",
-    address: "", // Ensure address field is part of the state
+    address: "", 
   });
   const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const loggedInEmail = localStorage.getItem("USER");
-    if (loggedInEmail) {
-      fetchUserInfo(loggedInEmail);
-    }
-  }, []);
-
+  //lấy thông tin user từ server để kiểm tra với local storage
   const fetchUserInfo = async (email) => {
     try {
-      const response = await fetch("http://localhost:3000/users"); // Ensure correct URL
+      const response = await fetch("http://localhost:3000/users");
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -36,7 +33,14 @@ export default function UserProfile() {
       console.error("Error fetching user data:", error);
     }
   };
-
+  //lấy thông tin user từ local storage
+   useEffect(() => {
+    const loggedInEmail = localStorage.getItem("USER");
+    if (loggedInEmail) {
+      fetchUserInfo(loggedInEmail);
+    }
+  }, []);
+  //lấy thông tin từ form
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserInfo((prevUserInfo) => ({
@@ -44,14 +48,16 @@ export default function UserProfile() {
       [name]: value,
     }));
   };
-
+  //gửi thông tin user lên server
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Updated user info:", userInfo);
-    // Handle form submission, e.g., send updated data to server
   };
 
   return (
+    <>
+    <Header/>
+    <Navigation/>
     <div id="user-info">
       <div className="title">
         <h2>Chỉnh sửa hồ sơ</h2>
@@ -59,6 +65,7 @@ export default function UserProfile() {
       <div className="information">
         <div className="avatar">
           <img src="../../../public/avatar.jpg" alt="Avatar" />
+          <button>Chọn ảnh</button>
         </div>
         <div className="info">
           {error && <p className="error">{error}</p>}
@@ -86,7 +93,6 @@ export default function UserProfile() {
               name="email"
               value={userInfo.email}
               onChange={handleChange}
-              readOnly // Make email read-only
             />
             <label htmlFor="phoneNumber">Số điện thoại:</label>
             <input
@@ -109,5 +115,7 @@ export default function UserProfile() {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import Header from "../../components/Header/Header";
 import Navigation from "../../components/Navigation/Navigation";
 import Footer from "../../components/Footer/Footer";
@@ -10,17 +9,6 @@ import foodApi from "../../api/foodApi";
 export default function AsiaFood() {
   const [foods, setFoods] = useState([]);
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  // //   axios
-  // //     .get("http://localhost:3000/allfood?categories=asiafood")
-  // //     .then((response) => {
-  // //       setFoods(response.data);
-  // //     })
-  // //     .catch((error) => {
-  // //       console.error("There was an error fetching the foods!", error);
-  // //     });
-  // // }, []);
 
   useEffect(() => {
     const fetchAsiaFood = async () => {

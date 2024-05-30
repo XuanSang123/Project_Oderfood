@@ -1,20 +1,6 @@
-// components/Navigation/Navigation.js
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navigation.css";
 export default function Navigation() {
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(event.target[0].value);
-    setSearchTerm(event.target[0].value);
-  };
-
-  // const filteredItems = { ListFood }.filter((item) =>
-  //   item.name.toLowerCase().includes(searchTerm.toLowerCase())
-  // );
-
   return (
     <>
       <div id="nav-search">
@@ -39,6 +25,9 @@ export default function Navigation() {
           </Link>
           <Link to={"/trang-mieng"} className="food-btn">
             Tráng Miệng
+          </Link>
+          <Link to={"/contact"} className="food-btn">
+            Liên hệ
           </Link>
         </div>
       </div>
