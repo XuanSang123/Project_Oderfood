@@ -8,6 +8,7 @@ const foodApi = {
   getJapansefood: () => axiosClient.get("allfood?categories=japanesefood"),
   getKoreafood: () => axiosClient.get("allfood?categories=koreanfood"),
   getVietfood: () => axiosClient.get("allfood?categories=vietfood"),
+  // postProduct: () => axiosClient.post("allfood"),
 };
 
 export default foodApi;

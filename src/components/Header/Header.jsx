@@ -63,9 +63,13 @@
 // }
 import React, { useState } from "react";
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faCartShopping, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import {
+  faUser,
+  faCartShopping,
+  faRightFromBracket,
+} from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/slices/authReducer";
 
@@ -83,6 +87,7 @@ export default function Header() {
     localStorage.removeItem("USER");
     localStorage.removeItem("TOKEN");
     dispatch(logout());
+    navigate("/login");
   };
 
   return (
@@ -107,7 +112,9 @@ export default function Header() {
             <div className="user-info">
               <Link to="/userInfo">Thông tin cá nhân</Link>
               <Link to="/cart">Đơn hàng</Link>
-              <Link to="/login" onClick={handleSingout}>Đăng xuất</Link>
+              <Link to="/login" onClick={handleSingout}>
+                Đăng xuất
+              </Link>
             </div>
           )}
         </div>
@@ -124,6 +131,15 @@ export default function Header() {
           {totalQuantity}
         </Link>
       </div>
+      {isLogin && (
+        <div className="user-info">
+          <Link to="/userInfo">Thông tin cá nhân</Link>
+          <Link to="/cart">Đơn hàng</Link>
+          <Link to="/login" onClick={handleSingout}>
+            Đăng xuất{" "}
+          </Link>
+        </div>
+      )}
     </div>
   );
 }
