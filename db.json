@@ -699,6 +699,97 @@
       "totalPrice": 95000,
       "totalQuantity": 0,
       "id": 5
+    },
+    {
+      "items": [
+        {
+          "id": "7g8h9i",
+          "image": "./public/com-tam-ba-ghien-2-4.jpg",
+          "name": "Cơm Tấm",
+          "restaurant": "Cơm Tấm Ba Ghiền",
+          "address": "84 Đặng Văn Ngữ, Phú Nhuận, TP. HCM",
+          "price": 50000,
+          "review": "Cơm tấm với sườn nướng thơm ngon, nước mắm chua ngọt hấp dẫn.",
+          "categories": "foods",
+          "city": "TPHCM",
+          "quantity": 1
+        },
+        {
+          "id": "4d5e6f",
+          "image": "./public/banh-mi-huynh-hoa.jpg",
+          "name": "Bánh Mì",
+          "restaurant": "Bánh Mì Huỳnh Hoa",
+          "address": "26 Lê Thị Riêng, Quận 1, TP. HCM",
+          "price": 40000,
+          "review": "Bánh mì đầy ắp nhân, pate và thịt nguội ngon tuyệt.",
+          "categories": "foods",
+          "city": "TPHCM",
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 90000,
+      "id": 6
+    },
+    {
+      "items": [
+        {
+          "id": "1a2b3c",
+          "image": "./public/pho-thin.jpg",
+          "name": "Phở Bò",
+          "restaurant": "Phở Thìn",
+          "address": "13 Lò Đúc, Hai Bà Trưng, Hà Nội",
+          "price": 100000,
+          "review": "Phở Thìn nổi tiếng với nước dùng thơm ngon và thịt bò tái chín mềm.",
+          "categories": "foods",
+          "city": "HN",
+          "quantity": 4
+        },
+        {
+          "id": "w7x8y9",
+          "image": "./public/AsiaFood/nari-goreng.jpg",
+          "name": "Nasi Goreng",
+          "restaurant": "Quán Indo 123",
+          "address": "789 Cách Mạng Tháng Tám, Quận 3, TP. HCM",
+          "price": 50000,
+          "review": "Nasi Goreng đậm đà, hương vị Indonesia.",
+          "categories": "asiafood",
+          "quantity": 3
+        }
+      ],
+      "totalPrice": 550000,
+      "totalQuantity": 0,
+      "id": 7
+    },
+    {
+      "items": [
+        {
+          "id": "4d5e6f",
+          "image": "./public/banh-mi-huynh-hoa.jpg",
+          "name": "Bánh Mì",
+          "restaurant": "Bánh Mì Huỳnh Hoa",
+          "address": "26 Lê Thị Riêng, Quận 1, TP. HCM",
+          "price": 40000,
+          "review": "Bánh mì đầy ắp nhân, pate và thịt nguội ngon tuyệt.",
+          "categories": "foods",
+          "city": "TPHCM",
+          "quantity": 1
+        },
+        {
+          "id": "7g8h9i",
+          "image": "./public/com-tam-ba-ghien-2-4.jpg",
+          "name": "Cơm Tấm",
+          "restaurant": "Cơm Tấm Ba Ghiền",
+          "address": "84 Đặng Văn Ngữ, Phú Nhuận, TP. HCM",
+          "price": 50000,
+          "review": "Cơm tấm với sườn nướng thơm ngon, nước mắm chua ngọt hấp dẫn.",
+          "categories": "foods",
+          "city": "TPHCM",
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 90000,
+      "totalQuantity": 0,
+      "id": 8
     }
   ],
   "users": [
@@ -710,16 +801,6 @@
       "lastName": "asdasdasd",
       "address": "1523 Le Van Khuong ",
       "id": 5
-    },
-    {
-      "email": "admin@gmail.com",
-      "password": "$2a$10$KQnEOTRnRCFCy/5HkgaOgOdEhcCglHoXqIQceUVLdUIGQKZKvnKcW",
-      "phoneNumber": "098102933",
-      "firstName": "Bao",
-      "lastName": "Huynh",
-      "isAdmin": true,
-      "id": 6,
-      "address": "456 Đường C, Phường D, Quận 2, TP. HCM"
     },
     {
       "id": 7,
@@ -739,6 +820,26 @@
       "lastName": "asdasdasd",
       "adress": "asd 11213",
       "id": 8
+    },
+    {
+      "email": "thaingocphat231@gmail.com",
+      "password": "$2a$10$gFNJ/EWbUTnfdwRVdnUTxOn6otPO6KDUpALajGyay8bD58mXRRItC",
+      "confirmPassword": "asdfghA1",
+      "phoneNumber": "0388892447",
+      "firstName": "Phat",
+      "lastName": "Thai Ngoc",
+      "adress": "Tân Kiên Bình Chánh",
+      "id": 9
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$egy6pxzEBeuCHXIs54Im5OzyfYeXov1NCviXRlAdenl9WujIOEjGC",
+      "phoneNumber": "0964417590",
+      "firstName": "sang",
+      "lastName": "xuan",
+      "address": "1523 Le Van Khuong ",
+      "isAdmin": true,
+      "id": 10
     }
   ]
 }
